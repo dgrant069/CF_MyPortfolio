@@ -64,5 +64,11 @@ module MyPortfolio
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Added this to configure the generator to use mini_test and not create helpers
+    config.generators do |g|
+        g.test_framework :mini_test, :spec => true
+        g.helper false
+    end
   end
 end
