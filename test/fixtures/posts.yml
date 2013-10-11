@@ -2,6 +2,6 @@ post_brand_new:
   title: Brand New
   Body: It shines like new
 
-# post_different:
-#   title: Make changes
-#   Body: Different stuff
+post_different:
+  title: Make changes
+  Body: Different stuff

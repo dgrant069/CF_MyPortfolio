@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 
+gem 'bootstrap-sass-rails'
 
-group :development do
-  gem 'minitest-rails'
-end
 
-group :test do
+group :development, :test do
   gem 'minitest-rails-capybara'
+  gem 'minitest-rails'
   gem 'minitest-focus'
   gem 'turn'
+  gem 'launchy'
 end
 
 
