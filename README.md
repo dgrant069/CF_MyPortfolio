@@ -1,5 +1,9 @@
 This rails app is the beginning of my portfolio.
 
+Day 4
+Added Bootstrap theme and pushed to Heroku.
+
+
 Day 3
 Added a scaffold that passes BDD. Tried to add multiple fixtures for posts, but couldn't figure
 out how to single out only one in the delete test
