@@ -2,6 +2,7 @@ This rails app is the beginning of my portfolio.
 
 Day 4
 Added Bootstrap theme and pushed to Heroku.
+![screenshot](/public/images/Day4_Travis.png)
 
 
 Day 3
