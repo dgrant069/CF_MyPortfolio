@@ -1,23 +1,25 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
-
 gem 'bootstrap-sass-rails'
+gem 'minitest-rails'
 
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'minitest-rails-capybara'
-  gem 'minitest-rails'
   gem 'minitest-focus'
   gem 'turn'
   gem 'launchy'
+  gem 'sqlite3'
 end
 
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
 
 
 # Gems used only for assets and not required
