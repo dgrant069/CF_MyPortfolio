@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 gem 'bootstrap-sass-rails'
@@ -10,11 +11,19 @@ group :production do
 end
 
 group :development, :test do
-  gem 'minitest-rails-capybara'
-  gem 'minitest-focus'
-  gem 'turn'
-  gem 'launchy'
+  gem "minitest", "> 4.0"
   gem 'sqlite3'
+  gem "minitest-rails-capybara"
+  gem "minitest-focus"
+  gem "minitest-colorize"
+  gem "minitest-rails"
+  gem "capybara-webkit"
+  gem "launchy"
+  gem "pry-rails"
+  gem "pry-doc"
+  gem "pry-debugger"
+  gem "faker"
+  gem "turn"
 end
 
 

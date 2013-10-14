@@ -1,9 +1,9 @@
 This rails app is the beginning of my portfolio.
+[![Build Status](https://travis-ci.org/dgrant069/CF_MyPortfolio.png?branch=master)](https://travis-ci.org/dgrant069/CF_MyPortfolio)
 
 Day 4
 Added Bootstrap theme and pushed to Heroku.
 ![screenshot](/public/images/Day4_Travis.png)
-
 
 Day 3
 Added a scaffold that passes BDD. Tried to add multiple fixtures for posts, but couldn't figure

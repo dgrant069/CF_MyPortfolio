@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MyPortfolio</title>
+  <meta charset="utf-8">
+  <meta name="Portfolio Home" content="Landing page for portfolio of work">
+  <meta name="Description" content="">
+  <meta name="Author" content="Dylan Grant">
+  <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <title>Dylan Wu Wei</title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
+
 <body>
 
-<%= yield %>
+<%= render 'layouts/nav' %>
+
+  <%= yield %>
+
+<%= render 'layouts/footer' %>
 
 </body>
 </html>
