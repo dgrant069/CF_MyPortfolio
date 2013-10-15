@@ -3,7 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 gem 'bootstrap-sass-rails'
-gem 'minitest-rails'
+
 
 group :production do
   gem 'rails_12factor'
@@ -13,6 +13,7 @@ end
 group :development, :test do
   gem "minitest", "> 4.0"
   gem 'sqlite3'
+  gem 'minitest-rails'
   gem "minitest-rails-capybara"
   gem "minitest-focus"
   gem "minitest-colorize"
