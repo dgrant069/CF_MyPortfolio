@@ -24,7 +24,7 @@ feature "As the site owner, I want to edit a project so that I can correct typos
     click_on 'Update Project'
 
     # Then the changes should not be saved, and I should get to try again
-    page.must_have_content "Project could not be saved"
+    page.must_have_content "error prohibited this project from being saved"
     page.must_have_content "Name is too short"
   end
 end

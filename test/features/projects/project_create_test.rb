@@ -30,8 +30,8 @@ feature "As a site owner I want to add a portfolio item" do
 
     # Then the form should be displayed again, with an error message
     current_path.must_match /projects$/
-    page.must_have_content "Project could not be saved"
+    page.must_have_content "errors prohibited this project from being saved"
     page.must_have_content "Name is too short"
-    page.must_have_content "Tech used is missing"
+    page.must_have_content "Tech used"
   end
 end
