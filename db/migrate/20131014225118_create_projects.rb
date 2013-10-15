@@ -1,7 +1,6 @@
 class CreateProjects < ActiveRecord::Migration
   #include ActiveModel::Validations
-    validates :name, length: { in: 4..225 }
-    validates :tech_used, presence: true
+
 
   def change
     create_table :projects do |t|
