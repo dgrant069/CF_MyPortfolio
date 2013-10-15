@@ -1,0 +1,7 @@
+proj_uno:
+  name: Really cool project
+  tech_used: Rails, Bootstrap
+
+proj_dos:
+  name: Boring project
+  tech_used: HTML, CSS, SQL

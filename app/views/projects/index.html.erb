@@ -1,0 +1,21 @@
+<div class="section">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Badass Projects Homie <%= link_to 'New Project', new_project_path %></h2>
+        <hr>
+      </div>
+      <% @projects.each do |project| %>
+        <div class="col-lg-4 col-md-4 col-sm-6" class="Project" id="<% dom_id(project) %>">
+          <a href=<% link_to '', project %>><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"><%= project.name %></a>
+        </div>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

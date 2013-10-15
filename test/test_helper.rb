@@ -5,6 +5,9 @@ require "minitest/rails"
 require "capybara/rails"
 require "capybara/rspec/matchers"
 require "minitest/rails/capybara"
+require "minitest/autorun"
+require "minitest/focus"
+
 
 class ActionDispatch::IntegrationTest
   include Rails.application.routes.url_helpers
