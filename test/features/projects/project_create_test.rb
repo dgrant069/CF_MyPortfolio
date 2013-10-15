@@ -15,8 +15,8 @@ feature "As a site owner I want to add a portfolio item" do
     click_on 'Create Project'
 
     # Then the project is successfully created and is visible
-    page.text.must_have "Project was successfully created."
-    page.text.must_have projects(:proj_uno).name
+    page.must_have_content "Project was successfully created."
+    page.must_have_content projects(:proj_uno).name
 
   end
 end

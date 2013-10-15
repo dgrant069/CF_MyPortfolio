@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        #flash[:notice] = "Project has been created."
+        flash[:notice] = "Project was successfully created."
         #redirect_to project_path
       else
       end
