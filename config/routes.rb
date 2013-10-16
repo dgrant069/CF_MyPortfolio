@@ -1,6 +1,7 @@
 MyPortfolio::Application.routes.draw do
   devise_for :users
 
+  resources :users
   resources :posts
   resources :projects
 
