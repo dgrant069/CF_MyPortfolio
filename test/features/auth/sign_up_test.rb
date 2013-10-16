@@ -8,13 +8,13 @@ feature "As a site visitor
 
   # Given a registration form
     visit "/"
-    click_on "Sign Up"
+    click_on "Sign up"
 
     # When I register with valid info
     fill_in "Email", with: "test@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
-    click_on "Sign up"
+    click_button "Sign up"
 
     # Then I should be signed up
     page.must_have_content "Welcome! You have signed up successfully"

@@ -4,6 +4,7 @@ feature "PostEdit" do
   scenario "Can submit edited form data" do
 
     #Given I have an existing post
+    login
     visit post_path(posts(:post_brand_new))
     click_on 'Edit'
     fill_in 'Title', with: posts(:post_different).title

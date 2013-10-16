@@ -1,7 +1,7 @@
 MyPortfolio::Application.routes.draw do
   devise_for :users
 
-  resources :users
+  get 'login' => 'devise/sessions#new'
   resources :posts
   resources :projects
 

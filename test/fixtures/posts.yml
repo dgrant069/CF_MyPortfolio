@@ -1,7 +1,10 @@
 post_brand_new:
-  title: Brand New
+  title:  <%= Faker::Name.name %>
   Body: It shines like new
+  author: one
 
 post_different:
-  title: Make changes
+  title:  <%= Faker::Name.name %>
   Body: Different stuff
+  author: one
+

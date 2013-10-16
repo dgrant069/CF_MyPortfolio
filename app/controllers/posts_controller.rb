@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   # GET /posts
   # GET /posts.json
   def index
@@ -44,6 +45,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
@@ -76,7 +78,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_path }
       format.json { head :no_content }
     end
   end

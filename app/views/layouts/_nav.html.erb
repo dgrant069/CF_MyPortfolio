@@ -13,7 +13,14 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Sign Up", new_user_registration_path %>></li>
+          <% if user_signed_in? %>
+            <li>Signed in as <%= current_user.email %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>
+
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.php">Contact</a></li>
@@ -22,7 +29,7 @@
             <ul class="dropdown-menu">
               <li><a href="portfolio-1-col.html">1 Column Portfolio</a></li>
               <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>
-              <li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
+              <li><a href="portfolio-3-col.html"> 3 Column Portfolio</a></li>
               <li><a href="portfolio-4-col.html">4 Column Portfolio</a></li>
               <li><a href="portfolio-item.html">Single Portfolio Item</a></li>
             </ul>
