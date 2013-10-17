@@ -1,4 +1,7 @@
 ENV["RAILS_ENV"] = "test"
+require 'simplecov'
+SimpleCov.start 'rails'
+
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
@@ -15,13 +18,7 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
 end
 
-
-# To add Capybara feature tests add `gem "minitest-rails-capybara"`
-# to the test group in the Gemfile and uncomment the following:
-
-
-# Uncomment for awesome colorful output
-# require "minitest/pride"
+require "minitest/pride"
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.

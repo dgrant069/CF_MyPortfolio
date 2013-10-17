@@ -28,6 +28,9 @@ group :development, :test do
   gem "turn"
 end
 
+group :test do
+  gem 'simplecov', :require => false
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
