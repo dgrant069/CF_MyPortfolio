@@ -2,9 +2,10 @@ post_brand_new:
   title:  <%= Faker::Name.name %>
   Body: It shines like new
   author: one
+  published: true
 
 post_different:
   title:  <%= Faker::Name.name %>
   Body: Different stuff
   author: one
-
+  published: true

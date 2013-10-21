@@ -33,6 +33,11 @@ class ActiveSupport::TestCase
     click_button "Sign in"
   end
 
+  def login_editor
+
+  end
+
+
 end
 
 Turn.config.format = :outline
