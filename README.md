@@ -1,6 +1,10 @@
 This rails app is the beginning of my portfolio.
 [![Build Status](https://travis-ci.org/dgrant069/CF_MyPortfolio.png?branch=master)](https://travis-ci.org/dgrant069/CF_MyPortfolio)
 
+Through 2nd Weekend
+Authentication and Authorization added. Only admins can publish posts now.
+![screenshot](/public/images/Auth_and_Auth.png)
+
 Day 5
 Added projects resource. Manually put in the model, controllers and views, and cooresponding bits of code to help. Also, added the tests for these features.
 
