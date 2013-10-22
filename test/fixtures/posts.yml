@@ -1,11 +1,23 @@
-post_brand_new:
-  title:  <%= Faker::Name.name %>
+one_published:
+  title: <%= Faker::Name.name %>
   Body: It shines like new
   author: one
   published: true
 
-post_different:
-  title:  <%= Faker::Name.name %>
+two_published:
+  title: <%= Faker::Name.name %>
   Body: Different stuff
-  author: one
+  author: two
   published: true
+
+one_unpublished:
+  title: <%= Faker::Name.name %>
+  Body: Just a draft
+  author: one
+  published: false
+
+two_unpublished:
+  title: <%= Faker::Name.name %>
+  Body: Waiting waiting
+  author: two
+  published: false

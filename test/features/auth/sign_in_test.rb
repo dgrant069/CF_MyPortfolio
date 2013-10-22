@@ -9,7 +9,6 @@ feature "As a site visitor who already has an account, I want to be able to sign
     # When the sign in link is clicked (above method uses click_button "Sign in")
 
     # Then the session should be destroyed
-    page.must_have_content "Signed in successfully"
     page.must_have_content "Sign out"
     page.must_have_content "Signed in as"
   end

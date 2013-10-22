@@ -1,14 +1,9 @@
 class PostsController < ApplicationController
-  after_filter :authenticate_user!, except: [:index, :show]
-  # GET /posts
-  # GET /posts.json
+  before_filter :authenticate_user!, except: [:index, :show]
+
+
   def index
-    @posts = Post.all
-    if current_user
-      @posts = policy_scope(Post)
-    else
-      @posts = Post.where(published: true)
-    end
+    @posts = policy_scope(Post)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +36,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   # POST /posts
@@ -90,4 +86,6 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end

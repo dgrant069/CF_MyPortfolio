@@ -26,15 +26,19 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def login
-    @user = users(:one)
+    @user = users(:two)
     visit new_user_session_path
-    fill_in "Email", with: users(:one).email
+    fill_in "Email", with: users(:two).email
     fill_in "Password", with: "password"
     click_button "Sign in"
   end
 
   def login_editor
-
+    @user = users(:one)
+    visit new_user_session_path
+    fill_in "Email", with: users(:one).email
+    fill_in "Password", with: "password"
+    click_button "Sign in"
   end
 
 

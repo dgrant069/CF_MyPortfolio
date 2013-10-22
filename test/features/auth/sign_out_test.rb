@@ -13,7 +13,6 @@ feature "As a site visitor I want to be able to sign out" do
     click_on "Sign out"
 
     # Then the session should be destroyed
-    page.must_have_content "Signed out successfully"
     page.wont_have_content "Sign out"
   end
 end

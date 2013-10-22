@@ -33,7 +33,7 @@
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
       <% if policy(post).publish? && post.published? == false %>
-        <td><%= link_to 'Publish', post_path(post, {post: {published: true}}) , method: :put %>
+        <td><%= link_to 'Publish', post_path(post, post: { published: true }) , method: :put %>
       <% end %>
     </tr>
     <% end %>
@@ -41,7 +41,10 @@
 
   <br />
 
-  <%= link_to 'New Post', new_post_path %>
+  <% if policy(Post).create? %>
+    <%= link_to 'New Post', new_post_path %>
+  <% end %>
+
   <div class="row">
 
     <div class="col-lg-8">
