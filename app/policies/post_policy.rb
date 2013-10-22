@@ -14,8 +14,8 @@ class PostPolicy < ApplicationPolicy
 
   def update?
     if user.present?
-      #user.author? || user.editor?
-      user.id == post.author_id and user.author? or not post.published?
+      #editor can't edit his published posts
+      user.id == post.author_id and user.author? or user.editor? or not post.published?
     end
   end
 

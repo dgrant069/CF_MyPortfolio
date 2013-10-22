@@ -1,8 +1,13 @@
 MyPortfolio::Application.routes.draw do
+
+
+
   devise_for :users
 
   get 'login' => 'devise/sessions#new'
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :projects
 
   root :to => 'home#index'
