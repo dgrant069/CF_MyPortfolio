@@ -5,7 +5,8 @@ gem 'rails', '3.2.14'
 gem 'bootstrap-sass-rails'
 gem 'devise'
 gem 'pundit'
-
+gem 'omniauth-twitter'
+gem 'figaro'
 
 group :production do
   gem 'rails_12factor'

@@ -16,3 +16,6 @@
 
 # Ignore all coverage changes
 /coverage
+
+# Ignore application configuration
+/config/application.yml
