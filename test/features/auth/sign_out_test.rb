@@ -6,8 +6,6 @@ feature "As a site visitor I want to be able to sign out" do
 
   # Given signed in
     login
-    page.must_have_content "Signed in successfully"
-    page.must_have_content "Sign out"
 
     # When the sign out link is clicked
     click_on "Sign out"

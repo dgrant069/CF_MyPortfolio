@@ -7,7 +7,7 @@ feature "As a site visitor
   scenario "sign up" do
 
   # Given a registration form
-    visit "/"
+    visit root_path
     click_on "Sign up"
 
     # When I register with valid info
