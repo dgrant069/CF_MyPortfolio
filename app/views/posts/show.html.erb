@@ -15,8 +15,27 @@
   <p>Created on: <%= @post.created_at %></p>
 </div>
 
+<% @comments.each do |com| %>
+  <tr id="<%= dom_id(com) %>-1">
+    <td><%= com.author %></td></tr>
+  <tr id="<%= dom_id(com) %>-2">
+    <td><%= com.content %></td>
+    <% if current_user.present? && current_user.editor? %>
+      <td><%= link_to 'Destroy Comment', [@post, com], method: :delete %></td>
+      <% if com.approved? == false %>
+        <td><%= link_to 'Approve', post_comment_path(@post, com, comment: { approved: true }) , method: :put %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+
 <h4>Add a comment</h4>
-<%= render 'comments/form' %>
+
+<% if current_user.present? %>
+  <%= render 'comments/form' %>
+<% else %>
+  <p>Login to comment</p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

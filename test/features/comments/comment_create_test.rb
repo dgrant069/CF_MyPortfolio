@@ -6,10 +6,10 @@ feature "Comments can be created" do
     # Given I'm a visitor
 
     # When I visit a post
-    visit post_path(:two_published)
+    visit post_path(posts(:two_published))
 
     # Then I can't add a comment
-    page.wont_have_link "Add Comment"
+    page.wont_have_button "Create Comment"
 
   end
 
@@ -17,11 +17,11 @@ feature "Comments can be created" do
 
     # Given I'm signed in as an Author and visit post
     login
-    Visit post_path(:two_published)
-    click_button "Add Comment"
+    visit post_path(posts(:two_published))
 
     # When I fill out comment data
     comment_one
+    click_button "Create Comment"
 
     # Then I can't add a comment
     page.must_have_content "Comment test 1"
@@ -32,11 +32,11 @@ feature "Comments can be created" do
 
     # Given I'm signed in as an editor and visit post
     login_editor
-    Visit post_path(:two_published)
-    click_button "Add Comment"
+    visit post_path(posts(:two_published))
 
     # When I fill out comment data
     comment_one
+    click_button "Create Comment"
 
     # Then I can't add a comment
     page.must_have_content "Comment test 1"

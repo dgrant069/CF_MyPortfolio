@@ -5,7 +5,7 @@ feature "PostEdit" do
 
     #Given that I'm a vistor
     #When I visit index
-    visit post_path(:two_published)
+    visit post_path(posts(:two_published))
 
     #Then I won't see New Post link
     page.wont_have_link "Edit Comment"
@@ -17,8 +17,8 @@ feature "PostEdit" do
     # Given I have an existing post comment
     login
 
-    #When I visit index
-    visit post_path(:two_published)
+    #When I visit post
+    visit post_path(posts(:two_published))
 
     #Then the post is updated and changes viewable
     page.wont_have_link "Edit Comment"
@@ -29,8 +29,8 @@ feature "PostEdit" do
     #Given that I'm signed in and have complete form data
     login_editor
 
-    #When I visit index
-    visit post_path(:two_published)
+    #When I visit post
+    visit post_path(posts(:two_published))
 
     #Then the post is updated and changes viewable
     page.wont_have_link "Edit Comment"

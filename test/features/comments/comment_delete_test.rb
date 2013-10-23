@@ -6,11 +6,10 @@ feature "Delete a post" do
     #Given that I'm a vistor
 
     #When I visit index
-    visit post_path(:two_published)
+    visit post_path(posts(:two_published))
 
     #Then I won't see New Post link
     page.wont_have_link "Destroy Comment"
-
   end
 
   scenario "Author: I can't see a destroy link" do
@@ -21,28 +20,11 @@ feature "Delete a post" do
     login
 
     #When I click on New Post
-    visit post_path(:two_published)
+    visit post_path(posts(:two_published))
+    comment_one
+    click_button "Create Comment"
 
     #Then I get an unauthorized message
     page.wont_have_link "Destroy Comment"
-
-  end
-
-  scenario "Editor: I can delete a comment" do
-
-    @tsop = posts(:two_unpublished).id
-    @moc = comments(:com_two).id
-
-    #Given I have a existing post
-    login_editor
-    visit post_path(:two_published)
-
-    #When I click the delete link
-    #puts "/posts/#{@only}"
-    click_link('Destroy Comment', href: "/posts/#{@tsop}/comments/#{@moc}")
-
-    #Then post is destroyed and no longer seen
-    page.wont_have_content comments(:com_two).title
-
   end
 end

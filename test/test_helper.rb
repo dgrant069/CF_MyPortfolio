@@ -42,23 +42,15 @@ class ActiveSupport::TestCase
   end
 
   def comment_one
-    fill_in author, with: comment(:com_one).author
-    fill_in author_url, with: comment(:com_one).author_url
-    fill_in author_email, with: comment(:com_one).author_email
-    fill_in user_ip, with: comment(:com_one).user_ip
-    fill_in user_agent, with: comment(:com_one).user_agent
-    fill_in referrer, with: comment(:com_one).referrer
-    fill_in content, with: comment(:com_one).content
+    fill_in "comment_author", with: comments(:com_one).author
+    fill_in "comment_author_url", with: comments(:com_one).author_url
+    fill_in "comment_content", with: comments(:com_one).content
   end
 
   def comment_two
-    fill_in author, with: comment(:com_two).author
-    fill_in author_url, with: comment(:com_two).author_url
-    fill_in author_email, with: comment(:com_two).author_email
-    fill_in user_ip, with: comment(:com_two).user_ip
-    fill_in user_agent, with: comment(:com_two).user_agent
-    fill_in referrer, with: comment(:com_two).referrer
-    fill_in content, with: comment(:com_two).content
+    fill_in "comment_author", with: comments(:com_two).author
+    fill_in "comment_author_url", with: comments(:com_two).author_url
+    fill_in "comment_content", with: comments(:com_two).content
   end
 end
 
