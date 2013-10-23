@@ -13,21 +13,6 @@ feature "Delete a post" do
 
   end
 
-  scenario "Author: I can't see a destroy link for published post" do
-
-    @only = posts(:two_unpublished).id
-
-    #Given that I'm a Author
-    login
-
-    #When I click on New Post
-    visit posts_path
-
-    #Then I get an unauthorized message
-    page.wont_have_link('Destroy', href: "/posts/#{@only}")
-
-  end
-
   scenario "Editor: I can delete a post" do
 
     @only = posts(:two_unpublished).id
