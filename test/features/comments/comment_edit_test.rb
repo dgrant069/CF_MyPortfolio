@@ -1,7 +1,7 @@
 require "test_helper"
 
 feature "PostEdit" do
-  scenario "Visitor: I can't submit form data to edit a blog post" do
+  scenario "Visitor: I can't edit a post comment" do
 
     #Given that I'm a vistor
     #When I visit index
@@ -12,7 +12,7 @@ feature "PostEdit" do
 
   end
 
-  scenario "Author: When signed in, I can submit edited form data" do
+  scenario "Author: When signed in, I can't edit a post comment" do
 
     # Given I have an existing post comment
     login
@@ -24,13 +24,48 @@ feature "PostEdit" do
     page.wont_have_link "Edit Comment"
   end
 
-  scenario "Editor: When signed in, I can submit form data to edit a blog post and publish" do
+  scenario "Editor: When signed in, I can't edit a post comment" do
 
     #Given that I'm signed in and have complete form data
     login_editor
 
     #When I visit post
     visit post_path(posts(:two_published))
+
+    #Then the post is updated and changes viewable
+    page.wont_have_link "Edit Comment"
+  end
+
+  scenario "Visitor: I can't submit form data to edit a project comment" do
+
+    #Given that I'm a vistor
+    #When I visit index
+    visit project_path(projects(:proj_uno))
+
+    #Then I won't see New Post link
+    page.wont_have_link "Edit Comment"
+
+  end
+
+  scenario "Author: When signed in, I can't edit a project comment" do
+
+    # Given I have an existing post comment
+    login
+
+    #When I visit post
+    visit project_path(projects(:proj_uno))
+
+    #Then the post is updated and changes viewable
+    page.wont_have_link "Edit Comment"
+  end
+
+  scenario "Editor: When signed in, I I can't edit a project comment" do
+
+    #Given that I'm signed in and have complete form data
+    login_editor
+
+    #When I visit post
+    visit project_path(projects(:proj_uno))
 
     #Then the post is updated and changes viewable
     page.wont_have_link "Edit Comment"

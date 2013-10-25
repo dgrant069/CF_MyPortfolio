@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
-
   def index
     @posts = policy_scope(Post)
 
@@ -11,12 +10,11 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @commentable = @post
+    @comments = @commentable.comments
     @comment = Comment.new
-    @comments = @post.comments
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,8 +22,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
   def new
     @post = Post.new
 
@@ -35,14 +31,11 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
     authorize @post
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(params[:post])
     authorize @post
@@ -59,8 +52,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
     authorize @post
@@ -76,8 +67,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
     authorize @post
@@ -88,6 +77,4 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
 end

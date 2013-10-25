@@ -1,17 +1,19 @@
 class CommentsController < ApplicationController
-#before_filter :load_post
+  before_filter :load_commentable
+
+  def index
+    @comments = @commentable.comments
+  end
 
   def create
-
-    @comment = Comment.new(params[:comment])
-    @post = @comment.post
+    @comment = @commentable.comments.new(params[:comment])
 
     if @comment.save
       flash[:notice] = "Comment awaiting moderation"
-      redirect_to @post
+      redirect_to @commentable
     else
-      @post = Post.find(@comment.post_id)
-      render template: "posts/show"
+      instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
+      render template: "#{@resource}/show"
     end
   end
 
@@ -38,4 +40,9 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+private
+  def load_commentable
+    @resource, id = request.path.split('/')[1,2]
+    @commentable = @resource.singularize.classify.constantize.find(id)
+  end
 end

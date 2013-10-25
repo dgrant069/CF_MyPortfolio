@@ -4,8 +4,10 @@ class Post < ActiveRecord::Base
                   :created_at,
                   :published,
                   :content
+
   belongs_to :author, class_name: "User"
-  has_many :comments
+
+  has_many :comments, as: :commentable
 
   def publish!
     published = true

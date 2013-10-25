@@ -2,12 +2,15 @@ com_one:
   author: <%= Faker::Name.name %>
   author_url: https://www.test1.com
   content: Comment test 1
-  post: two_unpublished
   approved: false
+  commentable: one_published
+  commentable_type: post
 
 com_two:
   author: <%= Faker::Name.name %>
   author_url: https://www.test2.com
   content: Comment test 2
-  post: two_published
   approved: true
+  commentable: two_published
+  commentable_type: post
+

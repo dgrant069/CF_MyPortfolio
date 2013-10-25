@@ -15,6 +15,7 @@
   <p>Created on: <%= @post.created_at %></p>
 </div>
 
+<!-- this needs to be fixed -->
 <% @comments.each do |com| %>
   <tr id="<%= dom_id(com) %>-1">
     <td><%= com.author %></td></tr>

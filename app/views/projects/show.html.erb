@@ -1,5 +1,31 @@
 <h2><%= @project.name %></h2>
-<p>Technologies used: <%= @project.tech_used %>
+<p>Technologies used: <%= @project.tech_used %></p>
+
+<h3>Comments: </h3>
+
+<!-- this needs to be fixed -->
+<% @comments.each do |com| %>
+  <tr id="<%= dom_id(com) %>-1">
+    <td><%= com.author %></td></tr>
+  <tr id="<%= dom_id(com) %>-2">
+    <td><%= com.content %></td>
+    <% if current_user.present? && current_user.editor? %>
+      <td><%= link_to 'Destroy Comment', [@project, com], method: :delete %></td>
+      <% if com.approved? == false %>
+        <td><%= link_to 'Approve', post_comment_path(@project, com, comment: { approved: true }) , method: :put %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+
+
+<h4>Add a comment</h4>
+
+<% if current_user.present? %>
+  <%= render 'comments/form' %>
+<% else %>
+  <p>Login to comment</p>
+<% end %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

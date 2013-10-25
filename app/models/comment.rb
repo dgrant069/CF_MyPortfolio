@@ -1,14 +1,13 @@
 class Comment < ActiveRecord::Base
-  belongs_to :post
-  attr_accessible :approved,
+  belongs_to :commentable, polymorphic: true
+  attr_accessible :content,
                   :author,
-                  :author_email,
                   :author_url,
-                  :content,
-                  :referrer,
+                  :author_email,
                   :user_agent,
                   :user_ip,
-                  :post_id
+                  :referrer,
+                  :commentable_id
 
   def approve!
     approved = true
