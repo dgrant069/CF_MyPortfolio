@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :posts, foreign_key: "author_id", :dependent => :destroy
+  has_many :projects, foreign_key: "author_id", :dependent => :destroy
+
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -30,6 +32,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.name = auth.info.nickname
       user.email = "#{user.name}-CHANGEME@twitter.example.com"
+      user.role = 'author'
     end
   end
 

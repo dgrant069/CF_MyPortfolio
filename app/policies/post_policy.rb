@@ -28,9 +28,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def publish?
-    if user.present?
-      user.editor?
-    end
+    user_editor?
   end
 
 

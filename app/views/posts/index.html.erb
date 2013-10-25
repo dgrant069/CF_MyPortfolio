@@ -20,7 +20,7 @@
     </tr>
 
     <% @posts.each do |post| %>
-    <tr id="<%= dom_id(post) %>">
+    <tr class="post" id="<%= dom_id(post) %>">
       <td><%= post.title %></td>
       <td><%= post.body %></td>
       <td><%= link_to 'Show', post %></td>

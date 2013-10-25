@@ -13,6 +13,11 @@ feature "Delete a post" do
 
   end
 
+  scenario "Author: I can't see delete link" do
+    pending "author can't delete"
+  end
+
+
   scenario "Editor: I can delete a post" do
 
     @only = posts(:two_unpublished).id

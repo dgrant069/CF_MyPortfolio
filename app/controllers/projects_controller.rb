@@ -32,10 +32,12 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   def create
     @project = Project.new(params[:project])
+    authorize @project
 
     respond_to do |format|
       if @project.save
@@ -49,6 +51,7 @@ class ProjectsController < ApplicationController
 
   def update
    @project = Project.find(params[:id])
+   authorize @project
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
@@ -64,6 +67,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    authorize @project
 
     respond_to do |format|
       format.html { redirect_to projects_url }

@@ -38,5 +38,13 @@ class ApplicationPolicy
   def scope
     Pundit.policy_scope!(user, record.class)
   end
+
+private
+
+  def user_editor?
+    if user.present?
+      user.editor?
+    end
+  end
 end
 
