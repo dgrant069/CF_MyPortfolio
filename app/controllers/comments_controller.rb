@@ -18,26 +18,24 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @comment = @commentable.comments.find(params[:id])
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
+        render template: "#{@resource}/show"
       end
     end
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @comment = @commentable.comments.find(params[:id])
 
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to @commentable
   end
 
 private

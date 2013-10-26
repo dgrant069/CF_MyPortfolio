@@ -1,8 +1,35 @@
 require "test_helper"
 
 feature "As the site owner, I want to edit a project so that I can correct typos" do
-  scenario "editing an existing project" do
+
+  scenario "Visitor: I can't edit a project" do
+
+    # Given I'm not signed in
+
+    # When I visit project index
+    visit projects_path
+
+    # Then the project is successfully created and is visible
+    page.wont_have_content "Edit"
+  end
+
+  scenario "Author: I can't edit project" do
+
+    # Given I'm an Author
+    login
+
+    # When I visit project index
+    visit projects_path
+
+    # Then the project is successfully created and is visible
+    page.wont_have_content "Edit"
+  end
+
+
+
+  scenario "eEditor: I can edit an existing project" do
     # Given an existing project
+    login_editor
     visit edit_project_path(projects(:proj_uno))
 
     # When I make changes
@@ -17,6 +44,7 @@ feature "As the site owner, I want to edit a project so that I can correct typos
 
   scenario "incorrectly editing an existing project" do
     # Given an existing project
+    login_editor
     visit edit_project_path(projects(:proj_uno))
 
     # When I submit invalid changes

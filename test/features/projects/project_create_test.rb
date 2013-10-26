@@ -3,11 +3,35 @@ require "test_helper"
 
 feature "As a site owner I want to add a portfolio item" do
 
-  scenario "submitting valid form info creates a project" do
+  scenario "Visitor: I can't submit project" do
+
+    # Given I'm not signed in
+
+    # When I visit project index
+    visit projects_path
+
+    # Then the project is successfully created and is visible
+    page.wont_have_content "New Project"
+  end
+
+  scenario "Author: I can't submit project" do
+
+    # Given I'm an Author
+    login
+
+    # When I visit project index
+    visit projects_path
+
+    # Then the project is successfully created and is visible
+    page.wont_have_content "New Project"
+  end
+
+  scenario "Editor: submitting valid form info creates a project" do
 
     # Given I have a completed project form
+    login_editor
     visit projects_path
-    click_on 'New project'
+    click_on 'New Project'
     fill_in 'Name', with: projects(:proj_uno).name
     fill_in 'Tech used', with: projects(:proj_uno).tech_used
 
@@ -22,6 +46,7 @@ feature "As a site owner I want to add a portfolio item" do
   scenario "Create form has invalid data" do
 
     # Given invalid project data is entered in a form
+    login_editor
     visit new_project_path
     fill_in 'Name', with: "Q"
 
