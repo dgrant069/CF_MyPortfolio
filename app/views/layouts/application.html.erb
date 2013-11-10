@@ -1,39 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="Portfolio Home" content="Landing page for portfolio of work">
-  <meta name="Description" content="">
-  <meta name="Author" content="Dylan Grant">
-  <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-  <title>Dylan Wu Wei</title>
-
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-
+<%= render 'layouts/head' %>
 </head>
 
 <body>
-<div id="user_nav">
-  <% if user_signed_in? %>
-    <li>Signed in as <%= current_user.email %></li>
-    <li><%= link_to 'Update profile', edit_user_registration_path %></li>
-    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to "Sign up", new_user_registration_path %></li>
-    <li><%= link_to "Sign in", new_user_session_path %></li>
-    <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
-  <% end %>
-</div>
-<%= render 'layouts/nav' %>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 <%= yield %>
-
-<%= render 'layouts/footer' %>
 
 </body>
 </html>
