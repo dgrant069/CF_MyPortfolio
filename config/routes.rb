@@ -1,7 +1,5 @@
 MyPortfolio::Application.routes.draw do
 
-  get 'login' => 'devise/sessions#new'
-
   devise_for :users, path_names: { sign_in: "login",
                                    sign_out: "logout" },
                     controllers: { omniauth_callbacks: "omniauth_callbacks" }
@@ -16,7 +14,8 @@ MyPortfolio::Application.routes.draw do
 
   root :to => 'home#index'
 
-
+  get 'login' => 'devise/sessions#new'
+  get 'about_me' => 'about#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

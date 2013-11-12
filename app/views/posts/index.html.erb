@@ -1,131 +1,108 @@
-<div class="container">
+<head>
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<%= stylesheet_link_tag "font-awesome", :media => "all" %>
+<%= stylesheet_link_tag "scaffolds", :media => "all" %>
+<%= stylesheet_link_tag "common_pages", :media => "all" %>
+<%= javascript_include_tag "application" %>
+</head>
 
-  <div class="row">
+<body>
 
-    <div class="col-lg-12">
-      <h1 class="page-header">Blog Home<small>Blog Homepage</small></h1>
-    </div>
+  <div class="mainmenu">
+      <div class="menuwrapper">
+          <div class="menulist">
+              <ul class="items">
+                  <li class="menuitem">
+                    <%= link_to "ABOUT ME", about_me_path %>
+                  </li>
+                  <li class="menuitem">
+                    <%= link_to "PROJECTS", projects_path %>
+                  </li>
+                  <li class="menuitem">
+                    <%= link_to "BLOG", posts_path %>
+                  </li>
+              </ul>
+          </div>
+          <a href="#home" class="logoblock">
+              <span class="companyname">Wu Wei</span>
+          </a>
 
+          <div class="socialblock">
+
+              <!-- Place your social links here -->
+
+              <a href="#" title="Facebook" class="socialicon"><i class="fa fa-facebook-square"></i></a>
+              <a href="#" title="Twitter" class="socialicon"><i class="fa fa-twitter-square"></i></a>
+              <a href="#" title="Google Plus" class="socialicon"><i class="fa fa-google-plus-square"></i></a>
+              <a href="#" title="LinkedIn" class="socialicon"><i class="fa fa-linkedin-square"></i></a>
+
+          </div>
+      </div>
   </div>
-
-  <h1>Listing posts</h1>
-
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-
-    <% @posts.each do |post| %>
-    <tr class="post" id="<%= dom_id(post) %>">
-      <td><%= post.title %></td>
-      <td><%= post.body %></td>
-      <td><%= link_to 'Show', post %></td>
-      <% if policy(post).update? %>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <% end %>
-      <% if policy(post).destroy? %>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-      <% if policy(post).publish? && post.published? == false %>
-        <td><%= link_to 'Publish', post_path(post, post: { published: true }) , method: :put %>
-      <% end %>
-    </tr>
-    <% end %>
-  </table>
-
-  <br />
 
   <% if policy(Post).create? %>
     <%= link_to 'New Post', new_post_path %>
   <% end %>
 
-  <div class="row">
+  <div class="block whiteblock blogblock">
+    <div id="blog" class="block-container">
+      <div class="hexagon hexagon-top">
+        <div class="outer"></div>
+        <div class="inner"></div>
+      </div>
 
-    <div class="col-lg-8">
-
-      <h1><a href="blog-post.html">A Blog Home Template for Bootstrap 3</a></h1>
-      <p class="lead">by <a href="#">Start Bootstrap</a></p>
-      <hr>
-      <p><i class="icon-time"></i> Posted on August 28, 2013 at 10:00 PM</p>
-      <hr>
-      <a href="blog-post.html"><img src="http://placehold.it/900x300" class="img-responsive"></a>
-      <hr>
-      <p>This is a very basic starter template for a blog homepage. It makes use of Font Awesome icons that are built into the 'Modern Business' template, and it makes use of the Bootstrap 3 pager at the bottom of the page.</p>
-      <a class="btn btn-primary" href="blog-post.html">Read More <i class="icon-angle-right"></i></a>
-
-      <hr>
-
-      <h1><a href="blog-post.html">Another Blog Post</a></h1>
-      <p class="lead">by <a href="#">Start Bootstrap</a></p>
-      <hr>
-      <p><i class="icon-time"></i> Posted on August 28, 2013 at 10:45 PM</p>
-      <hr>
-      <a href="blog-post.html"><img src="http://placehold.it/900x300" class="img-responsive"></a>
-      <hr>
-      <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science...</p>
-      <a class="btn btn-primary" href="blog-post.html">Read More <i class="icon-angle-right"></i></a>
-
-      <hr>
-
-      <h1><a href="blog-post.html">Third Blog Post Entry</a></h1>
-      <p class="lead">by <a href="#">Start Bootstrap</a></p>
-      <hr>
-      <p><i class="icon-time"></i> Posted on August 28, 2013 at 10:45 PM</p>
-      <hr>
-      <a href="blog-post.html"><img src="http://placehold.it/900x300" class="img-responsive"></a>
-      <hr>
-      <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science...</p>
-      <a class="btn btn-primary" href="blog-post.html">Read More <i class="icon-angle-right"></i></a>
-
-      <hr>
-
-      <ul class="pager">
-        <li class="previous"><a href="#">&larr; Older</a></li>
-        <li class="next"><a href="#">Newer &rarr;</a></li>
-      </ul>
-
-    </div>
-
-    <div class="col-lg-4">
-      <div class="well">
-        <h4>Blog Search</h4>
-        <div class="input-group">
-          <input type="text" class="form-control">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="icon-search"></i></button>
-          </span>
-        </div><!-- /input-group -->
-      </div><!-- /well -->
-      <div class="well">
-        <h4>Popular Blog Categories</h4>
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="list-unstyled">
-              <li><a href="#dinosaurs">Dinosaurs</a></li>
-              <li><a href="#spaceships">Spaceships</a></li>
-              <li><a href="#fried-foods">Fried Foods</a></li>
-              <li><a href="#wild-animals">Wild Animals</a></li>
-            </ul>
+      <h2 class="title">Bloggin'</h2>
+      <div class="description">Blog posts about technology</div>
+      <% @posts.each do |post| %>
+        <div class="post">
+          <h3 class="title"><%= post.title %></h3>
+          <div class="author">NEED TO ADD AUTHOR AND TIME STAMP</div>
+          <div class="post-body column-2"><%= post.body %></div>
+          <div class="more-link">
+            <%= link_to 'Read More', post %>
           </div>
-          <div class="col-lg-6">
-            <ul class="list-unstyled">
-              <li><a href="#alien-abductions">Alien Abductions</a></li>
-              <li><a href="#business-casual">Business Casual</a></li>
-              <li><a href="#robots">Robots</a></li>
-              <li><a href="#fireworks">Fireworks</a></li>
-            </ul>
-          </div>
+          <% if policy(post).update? %>
+            <div class="basicbutton"><%= link_to 'Edit', edit_post_path(post) %></div>
+          <% end %>
+          <% if policy(post).destroy? %>
+            <div class="basicbutton"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <% end %>
+          <% if policy(post).publish? && post.published? == false %>
+            <div class="basicbutton"><%= link_to 'Publish', post_path(post, post: { published: true }) , method: :put %></div>
+            <% end %>
         </div>
-      </div><!-- /well -->
-      <div class="well">
-        <h4>Side Widget Well</h4>
-        <p>Bootstrap's default well's work great for side widgets! What is a widget anyways...?</p>
-      </div><!-- /well -->
+      <% end %>
     </div>
   </div>
 
-</div><!-- /.container -->
+  <div class="block colorblock twitterblock">
+      <div class="block-container">
+          <div class="twitterlogo"><i class="icon-twitter"></i></div>
+          <div class="messages-container">
+              <div class="message active">
+                  <div class="content">
+                      Twitter Feed.
+                  </div>
+                  <div class="author">@NEED AUTHOR AND DATE</div>
+              </div>
+
+              <div class="message">
+                  <div class="content">
+                      Maybe should include another feed.
+                  </div>
+                  <div class="author">@NEED AUTHOR AND DATE</div>
+              </div>
+
+              <div class="message">
+                  <div class="content">
+                      Maybe posts from people I follow on Twitter?
+                  </div>
+                  <div class="author">@NEED AUTHOR AND DATE</div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <%= render 'layouts/footer' %>
+
+</body>

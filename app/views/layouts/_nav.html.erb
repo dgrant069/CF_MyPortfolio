@@ -1,30 +1,27 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-        <a class="navbar-brand" href="/">Dylan Wu Wei</a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.php">Contact</a></li>
-          <li><%= link_to 'Portfolio', "/projects" %></li>
-          <li><%= link_to 'Blog', "/posts" %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Actions<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <%= render 'layouts/login' %>
-            </ul>
+<div class="mainmenu">
+  <div class="menuwrapper">
+    <div class="menulist">
+      <ul class="items">
+        <li class="menuitem">
+          <%= link_to "ABOUT ME", about_me_path %>
+        </li>
+        <li class="menuitem">
+          <%= link_to "PROJECTS", projects_path %>
+          </li>
+          <li class="menuitem">
+            <%= link_to "BLOG", posts_path %>
           </li>
         </ul>
       </div>
+        <a href="#home" class="logoblock">
+          <span class="companyname">Wu Wei</span>
+        </a>
+
+        <div class="socialblock">
+          <a href="#" title="Facebook" class="socialicon"><i class="fa fa-facebook-square"></i></a>
+          <a href="#" title="Twitter" class="socialicon"><i class="fa fa-twitter-square"></i></a>
+          <a href="#" title="Google Plus" class="socialicon"><i class="fa fa-google-plus-square"></i></a>
+          <a href="#" title="LinkedIn" class="socialicon"><i class="fa fa-linkedin-square"></i></a>
+        </div>
     </div>
-  </nav>
+</div>

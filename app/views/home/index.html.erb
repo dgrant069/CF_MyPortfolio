@@ -1,16 +1,24 @@
+<head>
+  <%= stylesheet_link_tag "home", :media => "all" %>
+  <%= stylesheet_link_tag "font-awesome", :media => "all" %>
+  <%= stylesheet_link_tag "scaffolds", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+</head>
 <body>
-<div class="title">
-  <h1>Wu Wei</h1>
-</div>
-<div class="flex-box">
-  <div class="me">
-    <%= link_to image_tag("dylan_zen_200.png", :border => 0), posts_path %>
+  <div class="body-home">
+    <div class="title">
+      <h1>Wu Wei</h1>
+    </div>
+    <div class="flex-box">
+      <div class="me">
+        <%= link_to image_tag("dylan_zen_200.png", :border => 0), about_me_path, title: "About Me" %>
+      </div>
+      <div class="port">
+        <%= link_to image_tag("zen_circle_200.png", :border => 0), projects_path, title: "My Projects" %>
+      </div>
+      <div class="blog">
+        <%= link_to image_tag("zenfrogsmall.png", :border => 0), posts_path, title: "Bloggin'" %>
+      </div>
+    </div>
   </div>
-  <div class="port">
-    <%= link_to image_tag("zenfrogsmall.png", :border => 0), projects_path %>
-  </div>
-  <div class="blog">
-    <%= link_to image_tag("zenfrogsmall.png", :border => 0), posts_path %>
-  </div>
-</div>
 </body>

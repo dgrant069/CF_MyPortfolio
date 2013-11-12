@@ -7,6 +7,7 @@ gem 'devise'
 gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'rails_12factor'
