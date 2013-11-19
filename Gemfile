@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'image'
 gem 'rmagick'
 gem 'newrelic_rpm'
+gem 'fog'
 
 group :production do
   gem 'rails_12factor'
