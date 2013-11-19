@@ -8,6 +8,9 @@ gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'image'
+gem 'rmagick'
 
 group :production do
   gem 'rails_12factor'

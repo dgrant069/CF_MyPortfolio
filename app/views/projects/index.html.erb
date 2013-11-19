@@ -10,9 +10,27 @@
 <body>
 
   <%= render 'layouts/nav' %>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div id="user_nav">
+    <% if user_signed_in? %>
+    <li>Signed in as <%= current_user.email %></li>
+    <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to "Sign up", new_user_registration_path %></li>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+    <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+  <% end %>
+</div>
+
 
   <% @projects.each do |project| %>
     <tr class="project" id="<%= dom_id(project) %>">
+      <%= image_tag project.image_url(:thumb).to_s %>
       <td><%= project.name %></td>
       <td><%= project.tech_used %></td>
       <td><%= link_to 'Show', project %></td>
