@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 @editor = User.create(email: "dgrant069@hotmail.com",
-                      password: "1234567890",
-                      password_confirmation: "1234567890",
+                      password: "fuckwu",
+                      password_confirmation: "fuckwu",
                       role: "editor")
 
 

@@ -358,6 +358,8 @@ i {
   text-align: center;
   padding: 0.5em 1em;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 .mainmenu .menuwrapper .menulist .items {
   display: inline-block;
@@ -388,6 +390,18 @@ i {
   float: right;
   padding: 1.2em 1em 0 1em;
 }
+.mainmenu .menuwrapper .login{
+  float: left;
+  padding: 0.8em 1em 0 1em;
+  display: inline-block;
+}
+.mainmenu .menuwrapper .login .word{
+  float: left;
+  font-size: 17px;
+  margin: 0.3em 0 0 1em;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
 .mainmenu .menuwrapper .socialblock .socialicon {
   width: 1.2em;
   height: 1.2em;
@@ -403,6 +417,7 @@ i {
   font-size: 30px;
   margin: -4px 0 0 -4px;
 }
+
 .homeblock #description-home {
   text-align: right;
   width: 50%;
