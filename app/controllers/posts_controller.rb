@@ -60,6 +60,7 @@ class PostsController < ApplicationController
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -75,6 +76,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_path }
       format.json { head :no_content }
+      format.js
     end
   end
 end

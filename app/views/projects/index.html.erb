@@ -9,46 +9,7 @@
 
 <body>
 
-  <div class="mainmenu">
-      <div class="menuwrapper">
-          <div class="menulist">
-              <ul class="items">
-                  <li class="menuitem">
-                      <a href="index.html#home">HOME</a>
-                  </li>
-                  <li class="menuitem">
-                      <a href="index.html#apps">APPS</a>
-                  </li>
-                  <li class="menuitem">
-                      <a href="index.html#team">TEAM</a>
-                  </li>
-                  <li class="menuitem">
-                      <a href="index.html#price">PRICE</a>
-                  </li>
-                  <li class="menuitem">
-                      <a href="index.html#blog">BLOG</a>
-                  </li>
-                  <li class="menuitem">
-                      <a href="index.html#contacts">CONTACTS</a>
-                  </li>
-              </ul>
-          </div>
-          <a href="#home" class="logoblock">
-              <span class="companyname">Wu Wei</span>
-          </a>
-
-          <div class="socialblock">
-
-              <!-- Place your social links here -->
-
-              <a href="#" title="Facebook" class="socialicon"><i class="fa fa-facebook-square"></i></a>
-              <a href="#" title="Twitter" class="socialicon"><i class="fa fa-twitter-square"></i></a>
-              <a href="#" title="Google Plus" class="socialicon"><i class="fa fa-google-plus-square"></i></a>
-              <a href="#" title="LinkedIn" class="socialicon"><i class="fa fa-linkedin-square"></i></a>
-
-          </div>
-      </div>
-  </div>
+  <%= render 'layouts/nav' %>
 
   <% @projects.each do |project| %>
     <tr class="project" id="<%= dom_id(project) %>">
@@ -75,8 +36,8 @@
 
   <div id="apps" class="appsblock whiteblock block">
       <div class="block-container">
-          <h2 class="title">Yes, we create mobile apps.</h2>
-          <div class="description">Proin gravida nibh vel velit auctor aliquet.</div>
+          <h2 class="title">Application Showcase</h2>
+          <div class="description">My favorite applications I've worked on</div>
           <div class="apps">
               <div class="slider">
                   <div class="navigation navigation-left">

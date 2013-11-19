@@ -10,6 +10,7 @@ require "capybara/rspec/matchers"
 require "minitest/rails/capybara"
 require "minitest/autorun"
 require "minitest/focus"
+# require "database_cleaner"
 
 
 class ActionDispatch::IntegrationTest
@@ -19,6 +20,8 @@ class ActionDispatch::IntegrationTest
 end
 
 require "minitest/pride"
+
+
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.

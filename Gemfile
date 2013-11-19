@@ -28,6 +28,7 @@ group :development, :test do
   gem "pry-debugger"
   gem "faker"
   gem "turn"
+  # gem "database_cleaner"
 end
 
 group :test do
