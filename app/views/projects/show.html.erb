@@ -1,4 +1,5 @@
 <h2><%= @project.name %></h2>
+<%= image_tag @project.image_url(:thumb).to_s if @project.image? %>
 <p>Technologies used: <%= @project.tech_used %></p>
 
 <h3>Comments: </h3>

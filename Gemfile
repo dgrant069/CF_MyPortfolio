@@ -8,6 +8,9 @@ gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'image'
+gem 'rmagick'
 
 group :production do
   gem 'rails_12factor'
@@ -28,6 +31,7 @@ group :development, :test do
   gem "pry-debugger"
   gem "faker"
   gem "turn"
+  # gem "database_cleaner"
 end
 
 group :test do
