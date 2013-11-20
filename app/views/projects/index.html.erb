@@ -51,14 +51,25 @@
 
 <br>
 
-<%= direct_upload_form_for @uploader do |f| %>
-  <p><%= f.file_field :image %></p>
-  <p><%= f.submit "Upload Image" %></p>
-<% end %>
-
 <% if policy(Project).create? %>
   <%= link_to 'New Project', new_project_path %>
 <% end %>
+
+<br>
+
+<%= s3_uploader_form post: projects_url, as: "project[image_url]" do %>
+  <%= file_field :file, multiple: true %>
+<% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+  <div class="upload">
+    {%=o.name%}
+    <div class="progress">
+      <div class="bar" style="width: 0%">
+      </div>
+    </div>
+  </div>
+</script>
 
   <div id="apps" class="appsblock whiteblock block">
       <div class="block-container">
