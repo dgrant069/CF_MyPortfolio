@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    @uploader = Project.new.image
+    @uploader.success_action_redirect = new_project_url
 
     respond_to do |format|
       format.html
@@ -22,7 +24,8 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = Project.new(key: params[:key])
+
 
     respond_to do |format|
       format.html

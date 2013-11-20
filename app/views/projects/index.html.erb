@@ -27,10 +27,13 @@
   <% end %>
 </div>
 
-
   <% @projects.each do |project| %>
     <tr class="project" id="<%= dom_id(project) %>">
-      <%= image_tag project.image_url(:thumb).to_s %>
+      <% if project.image_processed? %>
+        <%= link_to image_tag(project.image_url(:thumb)), project %>
+      <% else %>
+        <em>Processing...</em>
+      <% end %>
       <td><%= project.name %></td>
       <td><%= project.tech_used %></td>
       <td><%= link_to 'Show', project %></td>
@@ -46,7 +49,12 @@
     </tr>
   <% end %>
 
-<br />
+<br>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :image %></p>
+  <p><%= f.submit "Upload Image" %></p>
+<% end %>
 
 <% if policy(Project).create? %>
   <%= link_to 'New Project', new_project_path %>

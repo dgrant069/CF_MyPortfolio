@@ -13,6 +13,9 @@ gem 'image'
 gem 'rmagick'
 gem 'newrelic_rpm'
 gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
+gem 'unf'
 
 group :production do
   gem 'rails_12factor'
