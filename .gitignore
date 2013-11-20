@@ -25,3 +25,6 @@
 
 # Ignore redis files
 /redis-stable/*
+
+# Ignore tmp files
+/public/uploads/tmp/*

@@ -9,6 +9,23 @@
 <body>
 
   <%= render 'layouts/nav' %>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div id="user_nav">
+    <% if user_signed_in? %>
+      <li>Signed in as <%= current_user.email %></li>
+      <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Sign in", new_user_session_path %></li>
+      <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+    <% end %>
+  </div>
+
 
   <% if policy(Post).create? %>
     <%= link_to 'New Post', new_post_path %>
@@ -38,7 +55,7 @@
             <div class="basicbutton"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
           <% end %>
           <% if policy(post).publish? && post.published? == false %>
-            <div class="basicbutton"><%= link_to 'Publish', post_path(post, post: { published: true }) , method: :put %></div>
+            <div class="basicbutton"><%= link_to 'Publish', post_path(post, post: { published: true }), method: :put %></div>
             <% end %>
         </div>
       <% end %>
