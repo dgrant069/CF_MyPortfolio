@@ -3,8 +3,11 @@ This rails app is the beginning of my portfolio.
 
 
 Screenshots of Localization changes:
+
 ![screenshot](/public/images/localization option 1.png)
 ![screenshot](/public/images/localization option 1 - post zone 1.png)
+
+Now with user as central time
 ![screenshot](/public/images/localization option 1 - post zone 2.png)
 
 Through 2nd Weekend
