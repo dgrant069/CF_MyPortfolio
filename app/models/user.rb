@@ -17,10 +17,13 @@ class User < ActiveRecord::Base
                   :role,
                   :name,
                   :uid,
-                  :provider
+                  :provider,
+                  :time_zone
+
   # attr_accessible :title, :body
   validates_presence_of :email
   validates_uniqueness_of :email
+  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
 
   has_many :posts, foreign_key: "author_id", :dependent => :destroy
   has_many :projects, foreign_key: "author_id", :dependent => :destroy

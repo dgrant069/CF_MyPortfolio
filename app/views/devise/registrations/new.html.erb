@@ -13,8 +13,10 @@
     <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %></div>
 
-    <div><%= f.label :role %><br />
-    <%= f.text_field :role %></div>
+    <div class="field">
+      <%= f.label :time_zone %><br />
+      <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+    </div>
   <% end %>
 
   <div><%= f.submit "Sign up" %></div>

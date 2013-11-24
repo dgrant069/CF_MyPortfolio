@@ -1,0 +1,5 @@
+<h1><%= @user.email %></h1><br>
+
+<h3>Your Current Time Zone Setting:</h3>
+<p><%= @user.time_zone %></p>
+<%= link_to "Edit", edit_user_path(@user) %>

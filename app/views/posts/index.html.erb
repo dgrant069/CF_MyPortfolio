@@ -43,7 +43,7 @@
       <% @posts.each do |post| %>
         <div class="post">
           <h3 class="title"><%= post.title %></h3>
-          <div class="author">NEED TO ADD AUTHOR AND TIME STAMP</div>
+          <div class="created"><%= l post.created_at %></div>
           <div class="post-body column-2"><%= post.body %></div>
           <div class="more-link">
             <%= link_to 'Read More', post %>
@@ -55,7 +55,7 @@
             <div class="basicbutton"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
           <% end %>
           <% if policy(post).publish? && post.published? == false %>
-            <div class="basicbutton"><%= link_to 'Publish', post_path(post, post: { published: true }), method: :put %></div>
+            <div class="basicbutton"><%= link_to 'Publish', post_path(post, post: { published: true, published_at: Time.zone.now }), method: :put %></div>
             <% end %>
         </div>
       <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131120002202) do
+ActiveRecord::Schema.define(:version => 20131124055807) do
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(:version => 20131120002202) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "author_id"
     t.boolean  "published"
+    t.datetime "published_at"
   end
 
   add_index "posts", ["published"], :name => "index_posts_on_published"
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20131120002202) do
     t.string   "role"
     t.string   "provider"
     t.string   "uid"
+    t.string   "time_zone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
