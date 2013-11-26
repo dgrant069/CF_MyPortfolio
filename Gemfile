@@ -16,6 +16,7 @@ gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'unf'
+gem 'brakeman'
 
 group :production do
   gem 'rails_12factor'

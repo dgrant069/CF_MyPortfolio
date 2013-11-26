@@ -7,7 +7,6 @@ class Comment < ActiveRecord::Base
                   :user_agent,
                   :user_ip,
                   :referrer,
-                  :commentable_id
 
   def approve!
     approved = true

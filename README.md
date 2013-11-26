@@ -1,6 +1,10 @@
-This rails app is the beginning of my portfolio.
+#This rails app is my portfolio.
 [![Build Status](https://travis-ci.org/dgrant069/CF_MyPortfolio.png?branch=master)](https://travis-ci.org/dgrant069/CF_MyPortfolio)
-
+Security looks good on portfolio:
+![screenshot](/public/images/Brakeman1.png)
+![screenshot](/public/images/Brakeman2.png)
+![screenshot](/public/images/Security3.png)
+![screenshot](/public/images/Security4.png)
 
 Screenshots of Localization changes.
 
