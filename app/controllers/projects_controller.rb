@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
   def index
-    @projects = Project.all
+    @projects = policy_scope(Project) #Project.all
     @uploader = Project.new.image
     @uploader.success_action_redirect = new_project_url
 
