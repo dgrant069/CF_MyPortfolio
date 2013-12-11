@@ -1,95 +1,83 @@
-<head>
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-<%= stylesheet_link_tag "font-awesome", :media => "all" %>
-<%= stylesheet_link_tag "scaffolds", :media => "all" %>
-<%= stylesheet_link_tag "common_pages", :media => "all" %>
-<%= javascript_include_tag "application" %>
-</head>
+<%= render 'layouts/nav' %>
+<br>
+<br>
+<br>
+<br>
 
-<body>
+<div id="user_nav">
+  <% if user_signed_in? %>
+    <li>Signed in as <%= current_user.email %></li>
+    <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to "Sign up", new_user_registration_path %></li>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+    <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+  <% end %>
+</div>
 
-  <%= render 'layouts/nav' %>
-  <br>
-  <br>
-  <br>
-  <br>
 
-  <div id="user_nav">
-    <% if user_signed_in? %>
-      <li>Signed in as <%= current_user.email %></li>
-      <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <li><%= link_to "Sign in", new_user_session_path %></li>
-      <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+<% if policy(Post).create? %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
+
+<div class="block whiteblock blogblock">
+  <div id="blog" class="block-container">
+    <div class="hexagon hexagon-top">
+      <div class="outer"></div>
+      <div class="inner"></div>
+    </div>
+
+    <h2 class="title">Bloggin'</h2>
+    <div class="description">Blog posts about technology</div>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <h3 class="title"><%= post.title %></h3>
+        <div class="created"><%= l post.created_at %></div>
+        <div class="post-body column-2"><%= post.body %></div>
+        <div class="more-link">
+          <%= link_to 'Read More', post %>
+        </div>
+        <% if policy(post).update? %>
+          <div class="basicbutton"><%= link_to 'Edit', edit_post_path(post) %></div>
+        <% end %>
+        <% if policy(post).destroy? %>
+          <div class="basicbutton"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        <% end %>
+        <% if policy(post).publish? && post.published? == false %>
+          <div class="basicbutton"><%= link_to 'Publish', post_path(post, post: { published: true, published_at: Time.zone.now }), method: :put %></div>
+          <% end %>
+      </div>
     <% end %>
   </div>
+</div>
 
+<div class="block colorblock twitterblock">
+    <div class="block-container">
+        <div class="twitterlogo"><i class="icon-twitter"></i></div>
+        <div class="messages-container">
+            <div class="message active">
+                <div class="content">
+                    Twitter Feed.
+                </div>
+                <div class="author">@NEED AUTHOR AND DATE</div>
+            </div>
 
-  <% if policy(Post).create? %>
-    <%= link_to 'New Post', new_post_path %>
-  <% end %>
+            <div class="message">
+                <div class="content">
+                    Maybe should include another feed.
+                </div>
+                <div class="author">@NEED AUTHOR AND DATE</div>
+            </div>
 
-  <div class="block whiteblock blogblock">
-    <div id="blog" class="block-container">
-      <div class="hexagon hexagon-top">
-        <div class="outer"></div>
-        <div class="inner"></div>
-      </div>
-
-      <h2 class="title">Bloggin'</h2>
-      <div class="description">Blog posts about technology</div>
-      <% @posts.each do |post| %>
-        <div class="post">
-          <h3 class="title"><%= post.title %></h3>
-          <div class="created"><%= l post.created_at %></div>
-          <div class="post-body column-2"><%= post.body %></div>
-          <div class="more-link">
-            <%= link_to 'Read More', post %>
-          </div>
-          <% if policy(post).update? %>
-            <div class="basicbutton"><%= link_to 'Edit', edit_post_path(post) %></div>
-          <% end %>
-          <% if policy(post).destroy? %>
-            <div class="basicbutton"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-          <% end %>
-          <% if policy(post).publish? && post.published? == false %>
-            <div class="basicbutton"><%= link_to 'Publish', post_path(post, post: { published: true, published_at: Time.zone.now }), method: :put %></div>
-            <% end %>
+            <div class="message">
+                <div class="content">
+                    Maybe posts from people I follow on Twitter?
+                </div>
+                <div class="author">@NEED AUTHOR AND DATE</div>
+            </div>
         </div>
-      <% end %>
     </div>
-  </div>
+</div>
 
-  <div class="block colorblock twitterblock">
-      <div class="block-container">
-          <div class="twitterlogo"><i class="icon-twitter"></i></div>
-          <div class="messages-container">
-              <div class="message active">
-                  <div class="content">
-                      Twitter Feed.
-                  </div>
-                  <div class="author">@NEED AUTHOR AND DATE</div>
-              </div>
-
-              <div class="message">
-                  <div class="content">
-                      Maybe should include another feed.
-                  </div>
-                  <div class="author">@NEED AUTHOR AND DATE</div>
-              </div>
-
-              <div class="message">
-                  <div class="content">
-                      Maybe posts from people I follow on Twitter?
-                  </div>
-                  <div class="author">@NEED AUTHOR AND DATE</div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <%= render 'layouts/footer' %>
-
-</body>
+<%= render 'layouts/footer' %>

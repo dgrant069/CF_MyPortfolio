@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
                   :title,
                   :created_at,
                   :published,
+                  :published_at,
                   :content
 
   belongs_to :author, class_name: "User"

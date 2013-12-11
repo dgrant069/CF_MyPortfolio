@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index]
 
   def index
     @projects = Project.all
@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
+    authorize @project
 
     respond_to do |format|
       format.html
@@ -70,8 +71,9 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
-    @project.destroy
     authorize @project
+
+    @project.destroy
 
     respond_to do |format|
       format.html { redirect_to projects_url }

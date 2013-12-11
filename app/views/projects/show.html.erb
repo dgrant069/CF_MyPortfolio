@@ -1,6 +1,21 @@
 <h2><%= @project.name %></h2>
 <%= image_tag @project.image_url %>
+<p>Published: <%= @project.published %></p>
+<p>Link to site: <%= @project.http_link %></p>
 <p>Technologies used: <%= @project.tech_used %></p>
+<p>Description: <%= @project.description %></p>
+
+<% if policy(@project).update? %>
+  <%= link_to 'Edit', edit_project_path(@project) %><br><br>
+<% end %>
+<% if policy(@project).publish? && @project.published? == false %>
+  <%= link_to 'Publish', project_path(@project, project: { published: true }), method: :put %><br><br>
+<% end %>
+<% if policy(@project).destroy? %>
+  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %>
+
+
 
 <h3>Comments: </h3>
 

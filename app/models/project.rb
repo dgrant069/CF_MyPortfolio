@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   attr_accessible :name,
                   :tech_used,
+                  :description,
+                  :http_link,
                   :published,
                   :content,
                   :image,
@@ -8,7 +10,7 @@ class Project < ActiveRecord::Base
                   :image_processed
 
   validates :name, length: { in: 4..225 }
-  validates :tech_used, presence: true
+  #validates :tech_used, presence: true
 
   belongs_to :author, class_name: "User"
 

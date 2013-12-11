@@ -7,6 +7,14 @@ class ProjectPolicy < ApplicationPolicy
     @project = project
   end
 
+  def index?
+    user_editor?
+  end
+
+  def show?
+    user_editor?
+  end
+
   def create?
     user_editor?
   end
@@ -25,8 +33,10 @@ class ProjectPolicy < ApplicationPolicy
 
   class Scope < Struct.new(:user, :scope)
     def resolve
-      if user_editor?
+      if user.present? && user.editor?
         scope.all
+      else
+        scope.where(published: true)
       end
     end
   end

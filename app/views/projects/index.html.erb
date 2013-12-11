@@ -1,309 +1,74 @@
-<head>
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-<%= stylesheet_link_tag "font-awesome", :media => "all" %>
-<%= stylesheet_link_tag "scaffolds", :media => "all" %>
-<%= stylesheet_link_tag "background-image", :media => "all" %>
-<%= stylesheet_link_tag "common_pages", :media => "all" %>
-<%= javascript_include_tag "application" %>
-</head>
+<%= render 'layouts/nav' %>
+<br>
+<br>
+<br>
+<br>
 
-<body>
-
-  <%= render 'layouts/nav' %>
-  <br>
-  <br>
-  <br>
-  <br>
-
-  <div id="user_nav">
-    <% if user_signed_in? %>
-      <li>Signed in as <%= current_user.email %></li>
-      <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <li><%= link_to "Sign in", new_user_session_path %></li>
-      <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
-    <% end %>
-  </div>
-
-  <% @projects.each do |project| %>
-    <tr class="project" id="<%= dom_id(project) %>">
-      <% if project.image_processed? %>
-        <%= link_to image_tag(project.image_url(:thumb)), project %>
-      <% else %>
-        <em>Processing...</em>
-      <% end %>
-      <td><%= project.name %></td>
-      <td><%= project.tech_used %></td>
-      <td><%= link_to 'Show', project %></td>
-      <% if policy(project).update? %>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-      <% end %>
-      <% if policy(project).destroy? %>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-      <% if policy(project).publish? && project.published? == false %>
-        <td><%= link_to 'Publish', project_path(project, project: { published: true }), method: :put %></td>
-      <% end %>
-    </tr>
+<div id="user_nav">
+  <% if user_signed_in? %>
+    <li>Signed in as <%= current_user.email %></li>
+    <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to "Sign up", new_user_registration_path %></li>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+    <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
   <% end %>
+</div>
 
 <br>
-
 <% if policy(Project).create? %>
-  <%= link_to 'New Project', new_project_path %>
+  <%= direct_upload_form_for @uploader do |f| %>
+    <h2 id"AddNewProject">Add New Project</h2>
+    <p><%= f.file_field :image %></p>
+    <p><%= f.submit "Upload Image" %></p>
+  <% end %>
 <% end %>
 
-<br>
+<div id="apps" class="appsblock whiteblock block">
+    <div class="block-container">
+        <h2 class="title">Application Showcase</h2>
+        <div class="description">My favorite applications I've worked on</div>
+        <div class="apps">
+            <div class="slider">
+                <div class="navigation navigation-left">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+                <div class="navigation navigation-right">
+                    <i class="fa fa-chevron-right"></i>
+                </div>
 
-<%= direct_upload_form_for @uploader do |f| %>
-  <p><%= f.file_field :image %></p>
-  <p><%= f.submit "Upload Image" %></p>
-<% end %>
+                <div class="rotator">
 
+                  <% @projects.each do |project| %>
 
-  <div id="apps" class="appsblock whiteblock block">
-      <div class="block-container">
-          <h2 class="title">Application Showcase</h2>
-          <div class="description">My favorite applications I've worked on</div>
-          <div class="apps">
-              <div class="slider">
-                  <div class="navigation navigation-left">
-                      <i class="fa fa-chevron-left"></i>
-                  </div>
-                  <div class="navigation navigation-right">
-                      <i class="fa fa-chevron-right"></i>
-                  </div>
-
-                  <div class="rotator">
-
-                      <!-- Place your slides here -->
-
-                      <div class="slide active"><div class="slide-wrapper">
-                          <div class="picture">
-                              <img src="img/slider/slider_phone3.png">
-                          </div>
-                          <div class="container aleft">
-                              <h1 class="title">Mega Music App</h1>
-                              <div class="description">
-                                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                                  erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                                  et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
-                              </div>
-                              <div class="storebuttons">
-                                  <a class="storebutton googleplay" href="#"><img src="img/slider/googleplay.png"></a>
-                                  <a class="storebutton appstore" href="#"><img src="img/slider/appstore.png"></a>
-                              </div>
-                          </div>
-                      </div></div>
-
-                      <div class="slide"><div class="slide-wrapper">
-                          <div class="container aright">
-                              <h1 class="title">Other App</h1>
-                              <div class="description">
-                                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                                  erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                                  et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
-                              </div>
-                              <div class="storebuttons">
-                                  <a class="storebutton googleplay" href="#"><img src="img/slider/googleplay.png"></a>
-                                  <a class="storebutton appstore" href="#"><img src="img/slider/appstore.png"></a>
-                              </div>
-                          </div>
-                          <div class="picture">
-                              <img src="img/slider/slider_phone2.png">
-                          </div>
-                      </div></div>
-
-                      <div class="slide"><div class="slide-wrapper">
-                          <div class="picture">
-                              <img src="img/slider/slider_phone.png">
-                          </div>
-                          <div class="container aleft">
-                              <h1 class="title">Mega Photo App</h1>
-                              <div class="description">
-                                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                                  erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                                  et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
-                              </div>
-                              <div class="storebuttons">
-                                  <a class="storebutton googleplay" href="#"><img src="img/slider/googleplay.png"></a>
-                                  <a class="storebutton appstore" href="#"><img src="img/slider/appstore.png"></a>
-                              </div>
-                          </div>
-                      </div></div>
-
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <div class="colorblock block priceblock">
-      <div id="price" class="block-container">
-          <div class="hexagon hexagon-top">
-              <div class="outer"></div>
-              <div class="inner"></div>
-          </div>
-
-          <h2 class="title">We can offer</h2>
-          <div class="description">Proin gravida nibh vel velit auctor aliquet.</div>
-          <div class="pricetable">
-              <div class="priceitem bronze">
-                  <div class="wrapper">
-                      <h3 class="title">Bronze app</h3>
-                      <div class="services-list">
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Admin panel</span>
-                          </div>
-                          <div class="service exclude">
-                              <i class="icon-remove-sign"></i>
-                              <span>Unlimited space</span>
-                          </div>
-                          <div class="service exclude">
-                              <i class="icon-remove-sign"></i>
-                              <span>Personal design</span>
-                          </div>
-                          <div class="service exclude">
-                              <i class="icon-remove-sign"></i>
-                              <span>24/7 Support</span>
-                          </div>
+                    <div class="slide">
+                      <div class="slide-wrapper">
+                        <div class="picture">
+                          <% if project.image_processed? %>
+                            <%= image_tag(project.image_url(:thumb)) %>
+                          <% else %>
+                            <em>Processing...</em>
+                          <% end %>
+                        </div>
+                        <div class="container aleft">
+                            <h1 class="title"><%= project.name %></h1>
+                            <div class="description"><%= project.tech_used %></div>
+                            <div class="storebuttons">
+                                <%= link_to "View Site", project.http_link, class: "storebutton" %>
+                                <% if policy(project).show? %>
+                                  <%= link_to 'Admin', project_path(project), class: "storebutton" %>
+                                <% end %>
+                            </div>
+                        </div>
                       </div>
-                      <div class="cost">
-                          <div class="container">
-                              <h1>$9</h1>
-                              <span class="line">/month</span>
-                          </div>
-                      </div>
-                      <a href="#" class="button">BUY NOW</a>
-                  </div>
-              </div>
+                    </div>
 
-              <div class="priceitem silver">
-                  <div class="wrapper">
-                      <h3 class="title">Silver app</h3>
-                      <div class="services-list">
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Admin panel</span>
-                          </div>
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Unlimited space</span>
-                          </div>
-                          <div class="service exclude">
-                              <i class="icon-remove-sign"></i>
-                              <span>Personal design</span>
-                          </div>
-                          <div class="service exclude">
-                              <i class="icon-remove-sign"></i>
-                              <span>24/7 Support</span>
-                          </div>
-                      </div>
-                      <div class="cost">
-                          <div class="container">
-                              <h1>$19</h1>
-                              <span class="line">/month</span>
-                          </div>
-                      </div>
-                      <a href="#" class="button">BUY NOW</a>
-                  </div>
-              </div>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-              <div class="priceitem gold">
-                  <div class="wrapper">
-                      <h3 class="title">Gold app</h3>
-                      <div class="services-list">
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Admin panel</span>
-                          </div>
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Unlimited space</span>
-                          </div>
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Personal design</span>
-                          </div>
-                          <div class="service exclude">
-                              <i class="icon-remove-sign"></i>
-                              <span>24/7 Support</span>
-                          </div>
-                      </div>
-                      <div class="cost">
-                          <div class="container">
-                              <h1>$29</h1>
-                              <span class="line">/month</span>
-                          </div>
-                      </div>
-                      <a href="#" class="button">BUY NOW</a>
-                  </div>
-              </div>
-
-              <div class="priceitem diamond">
-                  <div class="wrapper">
-                      <h3 class="title">Diamond app</h3>
-                      <div class="services-list">
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Admin panel</span>
-                          </div>
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Unlimited space</span>
-                          </div>
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>Personal design</span>
-                          </div>
-                          <div class="service include">
-                              <i class="icon-ok-sign"></i>
-                              <span>24/7 Support</span>
-                          </div>
-                      </div>
-                      <div class="cost">
-                          <div class="container">
-                              <h1>$39</h1>
-                              <span class="line">/month</span>
-                          </div>
-                      </div>
-                      <a href="#" class="button">BUY NOW</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="infoblock">
-              <h3 class="title">Have a questions?</h3>
-              <div class="subscription">
-                  Duis autem vel eum iriure dolor in hendrerit in
-                  vulputate velit esse molestie consequat, vel illum dolore eu feugiat.
-              </div>
-              <div class="contacticons">
-                  <div class="item">
-                      <i class="icon-phone"></i>
-                      <span class="sign">1 (234) 56789012</span>
-                  </div>
-
-                  <a href="#" class="item">
-                      <i class="icon-envelope"></i>
-                      <span class="sign">mail@domain.com</span>
-                  </a>
-
-                  <a href="#" class="item">
-                      <i class="icon-skype"></i>
-                      <span class="sign">pandoraboxstudio</span>
-                  </a>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <%= render 'layouts/footer' %>
-
-</body>
+<%= render 'layouts/footer' %>

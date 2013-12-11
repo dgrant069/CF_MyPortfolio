@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131124055807) do
+ActiveRecord::Schema.define(:version => 20131210234005) do
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20131124055807) do
     t.boolean  "published"
     t.string   "image"
     t.boolean  "image_processed"
+    t.text     "description"
+    t.string   "http_link"
   end
 
   create_table "users", :force => true do |t|

@@ -265,10 +265,13 @@ i {
 }
 .block .block-container .storebuttons .storebutton {
   width: 180px;
-  height: 60px;
+  height: 16px;
   background-color: #c8c8c8;
   border-radius: 4px;
   display: inline-block;
+  text-align: center;
+  padding-top: 22px;
+  padding-bottom: 24px;
   margin: 0.5em;
   border: none;
   -webkit-transition: all 0.5s ease;
@@ -279,6 +282,11 @@ i {
 }
 .block .block-container .storebuttons .storebutton img {
   border: none;
+}
+.block .block-container .storebuttons .storebutton a {
+  border: none;
+  text-align: center;
+
 }
 .block .block-container .storebuttons .storebutton:hover {
   background-color: #00aeef;
