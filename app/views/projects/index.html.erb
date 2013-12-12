@@ -16,59 +16,57 @@
   <% end %>
 </div>
 
-<br>
-<% if policy(Project).create? %>
-  <%= direct_upload_form_for @uploader do |f| %>
-    <h2 id"AddNewProject">Add New Project</h2>
-    <p><%= f.file_field :image %></p>
-    <p><%= f.submit "Upload Image" %></p>
-  <% end %>
-<% end %>
-
 <div id="apps" class="appsblock whiteblock block">
-    <div class="block-container">
-        <h2 class="title">Application Showcase</h2>
-        <div class="description">My favorite applications I've worked on</div>
-        <div class="apps">
-            <div class="slider">
-                <div class="navigation navigation-left">
-                    <i class="fa fa-chevron-left"></i>
-                </div>
-                <div class="navigation navigation-right">
-                    <i class="fa fa-chevron-right"></i>
-                </div>
+  <div class="block-container">
+    <h2 class="title">Application Showcase</h2>
+    <div class="description">My favorite applications I've worked on</div>
+    <div class="apps">
+      <div class="slider">
+        <div class="navigation navigation-left">
+          <i class="fa fa-chevron-left"></i>
+        </div>
+        <div class="navigation navigation-right">
+          <i class="fa fa-chevron-right"></i>
+        </div>
 
-                <div class="rotator">
-
-                  <% @projects.each do |project| %>
-
-                    <div class="slide">
-                      <div class="slide-wrapper">
-                        <div class="picture">
-                          <% if project.image_processed? %>
-                            <%= image_tag(project.image_url(:thumb)) %>
-                          <% else %>
-                            <em>Processing...</em>
-                          <% end %>
-                        </div>
-                        <div class="container aleft">
-                            <h1 class="title"><%= project.name %></h1>
-                            <div class="description"><%= project.tech_used %></div>
-                            <div class="storebuttons">
-                                <%= link_to "View Site", project.http_link, class: "storebutton" %>
-                                <% if policy(project).show? %>
-                                  <%= link_to 'Admin', project_path(project), class: "storebutton" %>
-                                <% end %>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-
+        <div class="rotator">
+          <% @projects.each do |project| %>
+            <div class="slide">
+              <div class="slide-wrapper">
+                <div class="picture">
+                  <% if project.image_processed? %>
+                    <%= image_tag(project.image_url(:thumb)) %>
+                  <% else %>
+                    <em>Processing...</em>
                   <% end %>
                 </div>
+                <div class="container aleft">
+                  <h1 class="title"><%= project.name %></h1>
+                  <div class="description"><%= project.tech_used %></div>
+                  <div class="storebuttons">
+                    <%= link_to "View Site", project.http_link, class: "storebutton" %>
+                    <% if policy(project).show? %>
+                      <%= link_to 'Admin', project_path(project), class: "storebutton" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
+          <% end %>
         </div>
+
+      </div>
     </div>
+
+    <% if policy(Project).create? %>
+      <%= direct_upload_form_for @uploader do |f| %>
+        <h2 id"AddNewProject">Add New Project</h2>
+        <p><%= f.file_field :image %></p><br>
+        <p><%= f.submit "Add Project" %></p>
+      <% end %>
+    <% end %>
+
+  </div>
 </div>
 
 <%= render 'layouts/footer' %>

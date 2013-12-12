@@ -2,7 +2,8 @@ MyPortfolio::Application.routes.draw do
 
   devise_for :users, path_names: { sign_in: "login",
                                    sign_out: "logout" },
-                    controllers: { omniauth_callbacks: "omniauth_callbacks" }
+                    controllers: { omniauth_callbacks: "omniauth_callbacks",
+                                   sessions: "sessions" }
 
   resources :posts do
     resources :comments
@@ -18,6 +19,7 @@ MyPortfolio::Application.routes.draw do
 
   get 'login' => 'devise/sessions#new'
   get 'about_me' => 'about#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

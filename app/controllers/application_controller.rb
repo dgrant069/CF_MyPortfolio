@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     redirect_to request.headers["Referer"] || root_path
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
+
   def user_time_zone(&block)
     Time.use_zone(current_user.time_zone, &block)
   end

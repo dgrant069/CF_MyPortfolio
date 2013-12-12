@@ -16,20 +16,15 @@
   <% end %>
 </div>
 
-
-<% if policy(Post).create? %>
-  <%= link_to 'New Post', new_post_path %>
-<% end %>
-
 <div class="block whiteblock blogblock">
   <div id="blog" class="block-container">
-    <div class="hexagon hexagon-top">
-      <div class="outer"></div>
-      <div class="inner"></div>
-    </div>
-
     <h2 class="title">Bloggin'</h2>
     <div class="description">Blog posts about technology</div>
+    <div class="description">
+      <% if policy(Post).create? %>
+        <%= link_to 'New Post', new_post_path %>
+      <% end %>
+    </div>
     <% @posts.each do |post| %>
       <div class="post">
         <h3 class="title"><%= post.title %></h3>
