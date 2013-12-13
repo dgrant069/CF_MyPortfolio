@@ -21,6 +21,11 @@
     <%= f.password_field :current_password %></div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :time_zone %><br />
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+  </div>
+
   <div><%= f.label :role %><br />
   <%= f.text_field :role %></div>
 

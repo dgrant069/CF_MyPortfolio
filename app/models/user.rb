@@ -22,18 +22,29 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates_presence_of :email
   validates_uniqueness_of :email
-  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
 
   has_many :posts, foreign_key: "author_id", :dependent => :destroy
   has_many :projects, foreign_key: "author_id", :dependent => :destroy
 
 
-  def self.from_omniauth(auth)
+  def self.from_twitter_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.nickname
-      user.email = "#{user.name}-CHANGEME@twitter.example.com"
+      user.email = "#{user.name}-CHANGEME@#{user.provider}.com"
+      user.role = 'author'
+    end
+  end
+
+  def self.from_facebook_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.nickname
+      user.oauth_token = auth.credentials.token
+      user.email = "#{user.name}-CHANGEME@#{user.provider}.com"
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.role = 'author'
     end
   end

@@ -5,7 +5,7 @@ feature "As a site visitor
   so that I can perform actions that require me to be logged in." do
 
   scenario "sign in with twitter works" do
-    visit root_path
+    visit projects_path
     OmniAuth.config.test_mode = true
     Capybara.current_session.driver.request.env['devise.mapping'] = Devise.mappings[:user]
     Capybara.current_session.driver.request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:twitter]
