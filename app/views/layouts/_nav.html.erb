@@ -16,12 +16,10 @@
         <a href="#home" class="logoblock">
           <span class="companyname">Dylan Grant</span>
         </a>
-<!--         <a href="#" class="login">
-          <span class="word">Login</span>
-        </a> -->
+
         <div class="socialblock">
           <% if user_signed_in? %>
-            <%= link_to '<p>"#{current_user.name}"</p>'.html_safe, edit_user_registration_path, class: "socialicon", title: "Edit Profile" %>
+            <%= link_to "#{current_user.name}".html_safe, destroy_user_session_path, class: "currentUser", title: "Profile" %>
             <%= link_to '<i class="fa fa-gear"></i>'.html_safe, destroy_user_session_path, method: :delete, class: "socialicon", title: "Sign Out" %>
           <% else %>
             <%= link_to '<i class="fa fa-facebook-square"></i>'.html_safe, user_omniauth_authorize_path(:facebook), class: "socialicon", title: "Facebook Login" %>

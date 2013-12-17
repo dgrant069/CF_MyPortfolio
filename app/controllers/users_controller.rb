@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    # authorize @user
+    authorize @user
   end
 
   def show
     @user = User.find(params[:id])
-    # authorize @user
+    authorize @user
   end
 
   # def new
@@ -19,12 +19,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # authorize @user
+    authorize @user
   end
 
   def update
     @user = User.find(params[:id])
-    # authorize @user
+    authorize @user
 
     if @user.update_attributes(params[:user])
       redirect_to user_path(@user), notice: "User was successfully marked as owner"

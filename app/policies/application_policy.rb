@@ -7,7 +7,7 @@ class ApplicationPolicy
     @record = record
   end
 
-   def index?
+  def index?
     false
   end
 

@@ -406,13 +406,27 @@ i {
 }
 .mainmenu .menuwrapper .socialblock {
   float: right;
-  padding: 0em 1em 0 0em;
+  padding: 0em 0em 0em 1em;
   height: 60px;
+  width: 184px;
 }
 .mainmenu .menuwrapper .socialblock .socialicon {
   width: 1.2em;
   height: 26px;
   margin: 17px 0 18px 10px;
+}
+
+.mainmenu .menuwrapper .socialblock .currentUser {
+  height: 26px;
+  margin: 14px 0 21px 10px;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  float: left;
+}
+
+.mainmenu .menuwrapper .socialblock .currentUser:hover {
+  color: #fff;
 }
 .mainmenu .menuwrapper .socialblock .socialicon i {
   font-size: 22px;
