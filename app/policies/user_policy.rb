@@ -1,10 +1,10 @@
 class UserPolicy < ApplicationPolicy
-  attr_reader :user, :record
+  attr_reader :user, :id
 
-  def initialize(user, record)
+  def initialize(user, id)
     raise Pundit::NotAuthorizedError, "must be logged in" unless user
     @user = user
-    @record = record
+    @id = id
   end
 
   def index?
@@ -12,19 +12,27 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user_author? || user_editor?
+    if user.present?
+      user.author? || user.editor?
+    end
   end
 
   def edit?
-    user_author? || user_editor?
+    if user.present?
+      user.author? || user.editor?
+    end
   end
 
   def update?
-    user_author? || user_editor?
+    if user.present?
+      user.author? || user.editor?
+    end
   end
 
   def destroy?
-    user_author? || user_editor?
+    if user.present?
+      user.author? || user.editor?
+    end
   end
 
   class Scope < Struct.new(:user, :scope)

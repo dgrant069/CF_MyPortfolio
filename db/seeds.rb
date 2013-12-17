@@ -10,9 +10,3 @@
                       password: "fuckwu04",
                       password_confirmation: "fuckwu04",
                       role: "editor")
-
-
-@author = User.create(email: "author@author.com",
-                      password: "1234567890",
-                      password_confirmation: "1234567890",
-                      role: "author")
