@@ -20,11 +20,16 @@
           <span class="word">Login</span>
         </a> -->
         <div class="socialblock">
-          <a href="#" title="Facebook" class="socialicon"><i class="fa fa-facebook-square"></i></a>
-          <a href="#" title="Twitter" class="socialicon"><i class="fa fa-twitter-square"></i></a>
-          <a href="#" title="Google Plus" class="socialicon"><i class="fa fa-google-plus-square"></i></a>
-          <a href="#" title="LinkedIn" class="socialicon"><i class="fa fa-linkedin-square"></i></a>
-          <a href="#" title="Other" class="socialicon"><i class="fa fa-gear"></i></a>
+          <% if user_signed_in? %>
+            <%= link_to '<p>"#{current_user.name}"</p>'.html_safe, edit_user_registration_path, class: "socialicon", title: "Edit Profile" %>
+            <%= link_to '<i class="fa fa-gear"></i>'.html_safe, destroy_user_session_path, method: :delete, class: "socialicon", title: "Sign Out" %>
+          <% else %>
+            <%= link_to '<i class="fa fa-facebook-square"></i>'.html_safe, user_omniauth_authorize_path(:facebook), class: "socialicon", title: "Facebook Login" %>
+            <%= link_to '<i class="fa fa-twitter-square"></i>'.html_safe, user_omniauth_authorize_path(:twitter), class: "socialicon", title: "Twitter Login" %>
+            <%= link_to '<i class="fa fa-google-plus-square"></i>'.html_safe, user_omniauth_authorize_path(:google_oauth2), class: "socialicon", title: "Google Login" %>
+            <%= link_to '<i class="fa fa-linkedin-square"></i>'.html_safe, user_omniauth_authorize_path(:linkedin), class: "socialicon", title: "LinkedIn Login" %>
+            <%= link_to '<i class="fa fa-gear"></i>'.html_safe, new_user_session_path, class: "socialicon", title: "Sign In" %>
+          <% end %>
         </div>
     </div>
 </div>

@@ -49,6 +49,29 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.from_google_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.email = auth.info.email
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.role = 'author'
+    end
+  end
+
+  def self.from_linkedin_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.id
+      user.name = auth.firstname
+      user.oauth_token = auth.token
+      user.email = "#{user.name}-CHANGEME@#{user.provider}.com"
+      user.role = 'author'
+    end
+  end
+
   def self.new_with_session(params, session)
     if session["devise.user_attributes"]
       new(session["devise.user_attributes"], without_protection: true) do |user|

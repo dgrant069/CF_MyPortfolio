@@ -9,8 +9,8 @@ Devise.setup do |config|
   config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_CONSUMER_SECRET"]
   config.omniauth :facebook, ENV["FACEBOOK_CONSUMER_KEY"], ENV["FACEBOOK_CONSUMER_SECRET"]
                  #{:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
-  config.omniauth :linkedin, ENV["LINKEDIN_CONSUMER_KEY"], ENV["LINKEDIN_CONSUMER_SECRET"]#, :scope =>
   config.omniauth :google_oauth2, ENV["GOOGLE_CONSUMER_KEY"], ENV["GOOGLE_CONSUMER_SECRET"]#, :scope =>
+  config.omniauth :linkedin, ENV["LINKEDIN_CONSUMER_KEY"], ENV["LINKEDIN_CONSUMER_SECRET"]#, :scope =>
 
   #config.newrelic ENV["NEW_RELIC_KEY"]
 
