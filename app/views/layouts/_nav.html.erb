@@ -13,9 +13,7 @@
           </li>
         </ul>
       </div>
-        <a href="#home" class="logoblock">
-          <span class="companyname">Dylan Grant</span>
-        </a>
+        <%= link_to '<span class="companyname">Dylan Grant</span>'.html_safe, root_path, class: "logoblock" %>
 
         <div class="socialblock">
           <% if user_signed_in? %>

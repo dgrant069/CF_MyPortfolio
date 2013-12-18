@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
                   :remember_me,
                   :name,
                   :uid,
+                  :role,
                   :provider,
                   :time_zone
 
@@ -62,11 +63,11 @@ class User < ActiveRecord::Base
   end
 
   def self.from_linkedin_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_create do |user|
+    where(auth.slice(:provider, :id)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.id
-      user.name = auth.firstname
-      user.oauth_token = auth.token
+      user.name = auth.person.first-name & " " & auth.person.last-name
+      user.oauth_token = auth.person.token
       user.email = "#{user.name}-CHANGEME@#{user.provider}.com"
       user.role = 'author'
     end

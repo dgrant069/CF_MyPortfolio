@@ -6,7 +6,7 @@ body {
   background-size: cover;
 }
 
-.title {
+.landingtitle {
   width: 100%;
   position: absolute;
   left: 0;
@@ -30,11 +30,12 @@ body {
   font-size: 24px;
   z-index: 100;
 }
-.title h1 {
-  font-weight: 1000;
+.landingtitle .home {
+  font-weight: 900;
   font-size: 24px;
+  padding: 12px 0px 12px 0px;
 }
-.title:after {
+.landingtitle:after {
   content: "";
   border: 20px solid #e57b19;
   border-color: #e57b19 transparent transparent transparent;
