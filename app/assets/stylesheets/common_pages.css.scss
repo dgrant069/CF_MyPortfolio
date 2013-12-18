@@ -334,8 +334,13 @@ i {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
   text-align: center;
-  background: #00aeef;
-}
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #414B54),
+    color-stop(1, #e57b19)
+  );}
 .mainmenu .menuwrapper {
   max-width: 1200px;
   width: 100%;
