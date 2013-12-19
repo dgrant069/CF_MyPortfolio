@@ -10,7 +10,7 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV["FACEBOOK_CONSUMER_KEY"], ENV["FACEBOOK_CONSUMER_SECRET"]
                  #{:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   config.omniauth :google_oauth2, ENV["GOOGLE_CONSUMER_KEY"], ENV["GOOGLE_CONSUMER_SECRET"]#, :scope =>
-  config.omniauth :linkedin, ENV["LINKEDIN_CONSUMER_KEY"], ENV["LINKEDIN_CONSUMER_SECRET"]#, :scope =>
+  config.omniauth :linkedin, ENV["LINKEDIN_CONSUMER_KEY"], ENV["LINKEDIN_CONSUMER_SECRET"], :scope => 'r_basicprofile r_emailaddress', :fields => ['id', 'email-address', 'first-name', 'last-name']
 
   #config.newrelic ENV["NEW_RELIC_KEY"]
 

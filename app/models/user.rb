@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.nickname
-      user.email = "#{user.name}-CHANGEME@#{user.provider}.com"
+      user.email = "#{user.uid}-CHANGEME@#{user.provider}.com"
       user.role = 'author'
     end
   end
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.name = auth.info.nickname
       user.oauth_token = auth.credentials.token
-      user.email = "#{user.name}-CHANGEME@#{user.provider}.com"
+      user.email = "#{user.uid}-CHANGEME@#{user.provider}.com"
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.role = 'author'
     end
@@ -63,12 +63,11 @@ class User < ActiveRecord::Base
   end
 
   def self.from_linkedin_omniauth(auth)
-    where(auth.slice(:provider, :id)).first_or_create do |user|
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
-      user.uid = auth.id
-      user.name = auth.person.first-name & " " & auth.person.last-name
-      user.oauth_token = auth.person.token
-      user.email = "#{user.name}-CHANGEME@#{user.provider}.com"
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.email = "#{user.uid}-CHANGEME@#{user.provider}.com"
       user.role = 'author'
     end
   end
