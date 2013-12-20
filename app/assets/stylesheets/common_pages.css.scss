@@ -220,9 +220,7 @@ i {
   color: #c8c8c8;
 }
 .colorblock {
-/*  background: #6699CC;
-*/
-  background: image-url("long_desert_road.png") no-repeat center center fixed;
+  background: #6699CC;
   color: #ffffff;
 }
 .colorblock a {
@@ -243,6 +241,30 @@ i {
   background: rgba(0, 0, 0, 0.4);
 }
 .colorblock .button:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+.aboutmeblock {
+  background: image-url("https://s3-us-west-2.amazonaws.com/dylangrant.us/static_images/long_desert_road_1500.jpg") no-repeat center top fixed;
+  color: #ffffff;
+}
+.aboutmeblock a {
+  color: #ffffff;
+}
+.aboutmeblock .button {
+  display: inline-block;
+  padding: 0.8em 2em;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.aboutmeblock .button:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.aboutmeblock .button:active {
   background: rgba(255, 255, 255, 0.1);
 }
 .grayblock {
@@ -481,7 +503,7 @@ i {
 }
 .homeblock #description-home .wrapper .developer {
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.8);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
