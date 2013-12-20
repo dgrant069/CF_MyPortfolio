@@ -1,3 +1,14 @@
+/*  Color scheme:
+    blue = #6699CC
+    med grey = #9C9284
+    light grey = #CCCC99
+    faint grey = #E6E6CC
+    alt orange = #FF9900
+    other alt orange = #FF8F00
+    alt blue = #3C7DC4
+    alt green = #5A8F29
+    alt dark grey = #2B2B2B
+*/
 html,
 html a {
   -webkit-font-smoothing: subpixel-antialiased !important;
@@ -54,12 +65,12 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #00aeef;
+  border-color: #6699CC;
 }
 *::selection,
 input::selection,
 textarea::selection {
-  background: #00aeef;
+  background: #6699CC;
   color: #fff;
 }
 button,
@@ -68,7 +79,7 @@ input.send {
   font-size: 18px;
   padding: 8px 18px;
   border: none;
-  background-color: #00aeef;
+  background-color: #6699CC;
   color: #ffffff;
   font-weight: 400;
   cursor: pointer;
@@ -99,7 +110,7 @@ h4 {
   font-size: 24px;
 }
 a {
-  color: #00aeef;
+  color: #6699CC;
 }
 i {
   text-shadow: none;
@@ -158,7 +169,7 @@ i {
   float: left;
   width: 68px;
   height: 40px;
-  background-color: #00aeef;
+  background-color: #6699CC;
   margin-top: -43px;
   margin-left: 6px;
 }
@@ -171,7 +182,7 @@ i {
   content: "";
   width: 0;
   height: 0;
-  border-color: transparent transparent #00aeef transparent;
+  border-color: transparent transparent #6699CC transparent;
   float: left;
   margin-top: -40px;
   position: relative;
@@ -185,7 +196,7 @@ i {
   content: "";
   width: 0;
   height: 0;
-  border-color: #00aeef transparent transparent transparent;
+  border-color: #6699CC transparent transparent transparent;
   float: left;
   margin-top: 40px;
   position: relative;
@@ -194,10 +205,11 @@ i {
   top: -25px;
 }
 .whiteblock {
+  background: #E6E6CC;
   color: #282828;
 }
 .whiteblock a {
-  color: #00aeef;
+  color: #6699CC;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -208,7 +220,9 @@ i {
   color: #c8c8c8;
 }
 .colorblock {
-  background: #00aeef;
+/*  background: #6699CC;
+*/
+  background: image-url("long_desert_road.png") no-repeat center center fixed;
   color: #ffffff;
 }
 .colorblock a {
@@ -289,7 +303,7 @@ i {
 
 }
 .block .block-container .storebuttons .storebutton:hover {
-  background-color: #00aeef;
+  background-color: #6699CC;
 }
 .socialblock {
   display: inline-block;
@@ -315,7 +329,7 @@ i {
   transition: all 0.5s ease;
 }
 .socialblock .socialicon i:hover {
-  color: #00aeef;
+  color: #6699CC;
   font-size: 36px;
   margin: -6px;
   -webkit-transform: rotate(360deg);
@@ -338,8 +352,8 @@ i {
     linear,
     left top,
     left bottom,
-    color-stop(0, #414B54),
-    color-stop(1, #e57b19)
+    color-stop(0, #e57b19),
+    color-stop(1, #414B54)
   );}
 .mainmenu .menuwrapper {
   max-width: 1200px;
@@ -370,7 +384,7 @@ i {
   transition: all 0.5s ease;
 }
 .mainmenu .menuwrapper .logoblock:hover .companyname {
-  color: #fff;
+  color: #6699CC;
 }
 .mainmenu .menuwrapper .menulist {
   display: inline-block;
@@ -389,7 +403,6 @@ i {
   height: 44px;
 }
 .mainmenu .menuwrapper .menulist .items .menuitem a {
-  color: #fff;
   display: inline-block;
   padding: 0.6em 1em;
   margin: 0 0.5em;
@@ -431,7 +444,7 @@ i {
 }
 
 .mainmenu .menuwrapper .socialblock .currentUser:hover {
-  color: #fff;
+  color: #6699CC;
 }
 .mainmenu .menuwrapper .socialblock .socialicon i {
   font-size: 22px;
@@ -439,7 +452,7 @@ i {
   position: absolute;
 }
 .mainmenu .menuwrapper .socialblock .socialicon i:hover {
-  color: #fff;
+  color: #6699CC;
   font-size: 30px;
   margin: -4px 0 0 -4px;
 }
@@ -568,7 +581,7 @@ i {
   margin-left: 5%;
   margin-top: 28%;
   height: auto;
-  background-color: #00aeef;
+  background-color: #6699CC;
   z-index: 77;
 }
 .homeblock #picture-home .wrapper .container .shadow {
@@ -690,7 +703,7 @@ i {
   -ms-transform: rotate(360deg) scale(1.3);
   -o-transform: rotate(360deg) scale(1.3);
   transform: rotate(360deg) scale(1.3);
-  background: #00aeef;
+  background: #6699CC;
 }
 .appsblock .apps .slider .rotator {
   max-width: 960px;
@@ -803,7 +816,7 @@ i {
   width: 2.4em;
   height: 2.4em;
   font-size: 50px;
-  border: 4px solid #00aeef;
+  border: 4px solid #6699CC;
   border-radius: 50%;
   zoom: 1;
   -webkit-transition: all 0.5s ease;
@@ -838,10 +851,10 @@ i {
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
   border-color: #c8c8c8;
-  color: #00aeef;
+  color: #6699CC;
 }
 .skillsblock .skillcontainer:hover .title {
-  color: #00aeef;
+  color: #6699CC;
 }
 .teamblock .block-container .teamcontainer {
   margin: 80px 0 60px 0;
@@ -893,7 +906,7 @@ i {
   position: relative;
 }
 .teamblock .block-container .teamcontainer .personal:hover .photo {
-  border-color: #00aeef;
+  border-color: #6699CC;
   -webkit-transform: rotate(0) scale(1.2);
   -moz-transform: rotate(0) scale(1.2);
   -ms-transform: rotate(0) scale(1.2);
@@ -915,7 +928,7 @@ i {
   min-width: 250px;
   min-height: 200px;
   z-index: 10;
-  background: #00aeef;
+  background: #6699CC;
   float: left;
   position: relative;
   -webkit-transition: all 0.5s ease;
@@ -1064,7 +1077,7 @@ i {
   font-weight: 400;
 }
 .twitterblock {
-  background: #00b4ff;
+  background: #6699CC;
 }
 .twitterblock .block-container .twitterlogo {
   font-size: 120px;
@@ -1186,7 +1199,7 @@ i {
 }
 .contactsblock .block-container .wrapper .contact-info a:hover {
   background-color: rgba(0, 0, 0, 0.2);
-  color: #00aeef;
+  color: #6699CC;
 }
 .contactsblock .block-container .wrapper .mailbutton {
   cursor: pointer;
@@ -1214,8 +1227,8 @@ i {
   -ms-transform: rotate(360deg);
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
-  border-color: #00aeef;
-  background-color: #00aeef;
+  border-color: #6699CC;
+  background-color: #6699CC;
 }
 .contactsblock .input-container {
   opacity: 0;
