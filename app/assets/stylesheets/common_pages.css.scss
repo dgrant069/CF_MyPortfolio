@@ -207,6 +207,7 @@ i {
 .whiteblock {
   background: #E6E6CC;
   color: #282828;
+  margin-top: -10px;
 }
 .whiteblock a {
   color: #6699CC;
@@ -275,7 +276,7 @@ i {
   display: inline-block;
   width: 100%;
   position: relative;
-  padding: 0 0 100px 0;
+  padding: 0 0 0px 0;
   z-index: 1;
 }
 .block .block-container {
@@ -1088,6 +1089,18 @@ i {
 }
 .blogblock .block-container .post .post-body {
   margin: 40px 0;
+  font-weight: 300;
+  color: #6e6e6e;
+  line-height: 1.7;
+}
+.blogblock .block-container .post .post-body ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.blogblock .block-container .post .post-body ul li {
+  margin-left: 40px;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   color: #6e6e6e;
   line-height: 1.7;
