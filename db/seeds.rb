@@ -9,4 +9,5 @@
 @editor = User.create(email: "dgrant069@hotmail.com",
                       password: "fuckwu04",
                       password_confirmation: "fuckwu04",
+                      name: "Admin Dylan"
                       role: "editor")

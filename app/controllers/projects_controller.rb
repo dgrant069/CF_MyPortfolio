@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new(key: params[:key])
-
+    authorize @project
 
     respond_to do |format|
       format.html
