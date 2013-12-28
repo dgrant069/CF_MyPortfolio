@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  force_ssl
+  # force_ssl
 
   around_filter :user_time_zone, if: :current_user
 
