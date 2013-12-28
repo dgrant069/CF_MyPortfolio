@@ -15,10 +15,6 @@ class ProjectPolicy < ApplicationPolicy
     user_editor?
   end
 
-  def new?
-    user_editor?
-  end
-
   def create?
     user_editor?
   end

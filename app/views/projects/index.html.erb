@@ -43,6 +43,7 @@
     </div>
 
     <% if policy(Project).create? %>
+      <%= link_to 'New', new_project_path %>
       <%= direct_upload_form_for @uploader do |f| %>
         <h2 id"AddNewProject">Add New Project</h2>
         <p><%= f.file_field :image %></p><br>

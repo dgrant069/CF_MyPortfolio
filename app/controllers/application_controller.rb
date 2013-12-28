@@ -1,10 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  force_ssl
 
   around_filter :user_time_zone, if: :current_user
 
   include Pundit
   #after_filter :verified_authorized, :except => :index
+
+  # def ssl_enabled?
+  #   !(Rails.env.development? || Rails.env.test?)
+  # end
+
+  # def https
+  #   ssl_enabled? ? "https://" : "http://"
+  # end
+  # helper_method :https
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
