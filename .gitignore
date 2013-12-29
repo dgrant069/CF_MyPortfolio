@@ -28,3 +28,4 @@
 
 # Ignore tmp files
 /public/uploads/tmp/*
+.env
