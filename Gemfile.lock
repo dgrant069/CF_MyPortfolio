@@ -343,6 +343,7 @@ DEPENDENCIES
   pundit
   rails (= 3.2.14)
   rails_12factor
+  redis
   rmagick
   sass-rails (~> 3.2.3)
   sidekiq

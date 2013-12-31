@@ -41,11 +41,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(params[:project])
-    # authorize @project
+    authorize @project
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
+        format.html { redirect_to projects_path }
       else
         format.html { render action: "new" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
