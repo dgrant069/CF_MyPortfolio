@@ -15,7 +15,11 @@
 
         <div class="rotator">
           <% @projects.each do |project| %>
-            <div class="slide active">
+            <% if project.name == "Grubly" %>
+              <div class="slide active">
+            <% else %>
+              <div class="slide">
+            <% end %>
               <div class="slide-wrapper">
                 <div class="picture">
                   <%= image_tag(project.image_url) %>
