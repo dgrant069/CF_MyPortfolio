@@ -18,11 +18,7 @@
             <div class="slide">
               <div class="slide-wrapper">
                 <div class="picture">
-                  <% if project.image_processed? %>
-                    <%= image_tag(project.image_url(:thumb)) %>
-                  <% else %>
-                    <em>Processing...</em>
-                  <% end %>
+                  <%= image_tag(project.image_url) %>
                 </div>
                 <div class="container aleft">
                   <h1 class="title"><%= project.name %></h1>
@@ -43,7 +39,6 @@
     </div>
 
     <% if policy(Project).create? %>
-      <%= link_to 'New', new_project_path %>
       <%= direct_upload_form_for @uploader do |f| %>
         <h2 id"AddNewProject">Add New Project</h2>
         <p><%= f.file_field :image %></p><br>
