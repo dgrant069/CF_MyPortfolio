@@ -34,4 +34,5 @@ MyPortfolio::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:1e622f1bce6c290fc205cdbabadb245e@albacore.redistogo.com:9908/'
 end
