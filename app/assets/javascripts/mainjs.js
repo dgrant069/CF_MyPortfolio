@@ -28,7 +28,8 @@
 function sliderResize(){
   $('.appsblock .apps .slider').height($('.slide.active .slide-wrapper').height());
 }
-jQuery(window).load(function(){
+
+// jQuery(window).load(function(){
   $(document).ready(function(){
 
 //===== Apps slider script =====
@@ -163,4 +164,4 @@ jQuery(window).load(function(){
     });
 
   });
-});
+// });
