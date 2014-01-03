@@ -2,7 +2,7 @@
 
 <div class="block whiteblock blogblock">
   <div id="blog" class="block-container">
-    <h2 class="title">Bloggin'</h2>
+    <h1 class="title">Bloggin'</h1>
     <div class="description">Blog posts about technology</div>
     <div class="description">
       <% if policy(Post).create? %>
@@ -11,9 +11,9 @@
     </div>
     <% @posts.each do |post| %>
       <div class="post">
-        <h3 class="title"><%= post.title %></h3>
+        <h2 class="title"><%= post.title %></h2>
         <div class="created"><%= l post.created_at %></div>
-        <div class="post-body column-2"><%= post.body %></div>
+        <div class="post-body column-2"><%= post.body.html_safe %></div>
         <div class="more-link">
           <%= link_to 'Read More', post %>
         </div>
