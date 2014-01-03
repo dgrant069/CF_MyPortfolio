@@ -368,7 +368,6 @@ i {
   z-index: 1000;
   top: 0;
   left: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
   text-align: center;
   background-image: -webkit-gradient(
@@ -419,6 +418,7 @@ i {
 .mainmenu .menuwrapper .menulist .items {
   display: inline-block;
   height: 44px;
+  font-size: 13px;
 }
 .mainmenu .menuwrapper .menulist .items .menuitem {
   float: left;
