@@ -22,6 +22,7 @@ gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'unf'
 gem 'brakeman'
+gem 'redcarpet'
 
 group :production do
   gem 'rails_12factor'
