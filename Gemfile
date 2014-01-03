@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '3.2.14'
-gem 'bootstrap-sass-rails'
 gem 'devise'
 gem 'pundit'
 gem 'oauth2'
