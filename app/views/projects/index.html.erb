@@ -22,7 +22,7 @@
             <% end %>
               <div class="slide-wrapper">
                 <div class="picture">
-                  <%= image_tag(project.image_url) %>
+                  <%= image_tag("https://s3-us-west-2.amazonaws.com/dylangrant.us/#{project.key}") %>
                 </div>
                 <div class="container aleft">
                   <h1 class="title"><%= project.name %></h1>

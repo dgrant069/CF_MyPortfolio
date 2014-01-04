@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
     authorize @project
 
     respond_to do |format|
+
       if @project.save
         format.html { redirect_to @project }
       else

@@ -376,7 +376,13 @@ i {
     left bottom,
     color-stop(0, #e57b19),
     color-stop(1, #414B54)
-  );}
+  );
+  background-image: -o-linear-gradient(bottom, #e57b19 0%, #414B54 100%);
+  background-image: -moz-linear-gradient(bottom, #e57b19 0%, #414B54 100%);
+  background-image: -webkit-linear-gradient(bottom, #e57b19 0%, #414B54 100%);
+  background-image: -ms-linear-gradient(bottom, #e57b19 0%, #414B54 100%);
+  background-image: linear-gradient(to bottom, #e57b19 0%, #414B54 100%);
+}
 .mainmenu .menuwrapper {
   max-width: 1200px;
   width: 100%;
