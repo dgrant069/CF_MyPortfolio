@@ -12,14 +12,14 @@
   <%= link_to 'Publish', project_path(@project, project: { published: true }), method: :put %><br><br>
 <% end %>
 <% if policy(@project).destroy? %>
-  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %><br><br>
 <% end %>
 
 
 
+<!--
 <h3>Comments: </h3>
 
-<!-- this needs to be fixed -->
 <% @comments.each do |com| %>
   <tr id="<%= dom_id(com) %>-1">
     <td><%= com.author %></td></tr>
@@ -42,8 +42,8 @@
 <% else %>
   <p>Login to comment</p>
 <% end %>
-
 <% if current_user.present? && current_user.editor? %>
   <%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>
+-->
 <%= link_to 'Back', projects_path %>
