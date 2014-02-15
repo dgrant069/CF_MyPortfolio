@@ -9,9 +9,6 @@ class Project < ActiveRecord::Base
                   :remote_image_url,
                   :image_processed
 
-  validates :name, length: { in: 4..225 }
-  #validates :tech_used, presence: true
-
   belongs_to :author, class_name: "User"
 
   mount_uploader :image, ImageUploader
