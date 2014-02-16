@@ -52,7 +52,7 @@ module UploadHelper
 
     def url
       # "https://#{@options[:bucket]}.s3.amazonaws.com/"
-      "https://s3-us-west-2.amazonaws.com/#{@options[:bucket]}/"
+      # "https://s3-us-west-2.amazonaws.com/#{@options[:bucket]}/
     end
 
     def policy
