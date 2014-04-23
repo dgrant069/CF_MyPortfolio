@@ -15,7 +15,7 @@ MyPortfolio::Application.routes.draw do
 
   resources :users
 
-  root :to => 'home#index'
+  root :to => 'about#index'
 
   get 'login' => 'devise/sessions#new'
   get 'about_me' => 'about#index'
