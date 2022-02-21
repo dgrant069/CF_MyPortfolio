@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.14'
-gem 'devise'
+gem 'rails', '5.2.6.2'
+gem 'devise', '>= 4.4.2'
 gem 'pundit'
 gem 'oauth2'
 gem 'omniauth'
@@ -10,8 +10,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem "omniauth-google-oauth2"
-gem 'figaro'
-gem 'font-awesome-rails'
+gem 'figaro', '>= 1.0.0'
+gem 'font-awesome-rails', '>= 4.7.0.4'
 gem 'redis'
 gem 'carrierwave'
 gem 'image'
@@ -19,7 +19,7 @@ gem 'rmagick'
 gem 'newrelic_rpm'
 gem 'fog'
 gem 'carrierwave_direct'
-gem 'sidekiq'
+gem 'sidekiq', '>= 6.4.0'
 gem 'unf'
 gem 'brakeman'
 gem 'redcarpet'
@@ -32,8 +32,8 @@ end
 group :development, :test do
   gem "minitest", "> 4.0"
   gem 'sqlite3'
-  gem 'minitest-rails'
-  gem "minitest-rails-capybara"
+  gem 'minitest-rails', '>= 0.9.2'
+  gem "minitest-rails-capybara", ">= 0.10.0"
   gem "minitest-focus"
   gem "minitest-colorize"
   gem "capybara-webkit"
@@ -57,8 +57,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails', '~> 5.0.5'
+  gem 'coffee-rails', '~> 4.2.2'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -66,7 +66,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.0.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
